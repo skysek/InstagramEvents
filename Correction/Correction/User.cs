@@ -24,6 +24,7 @@ namespace InstagramEvents
 
         public User(string username)
         {
+            if (String.IsNullOrEmpty(username)) throw new ArgumentException();
             _username = username;
             _posts = new List<Post>();
             _followers = new List<User>();
@@ -66,7 +67,7 @@ namespace InstagramEvents
         public Post AddPost(User user, Image content, string description)
         {
             int idx = _posts.Count + 1;
-            Post p = new Post(idx, content, description);
+            Post p = new Post(idx, this, content, description);
             _posts.Add(p);
             return p;
         }

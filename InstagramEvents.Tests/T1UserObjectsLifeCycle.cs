@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
@@ -24,7 +24,7 @@ namespace InstagramEvents.Tests
         [Test]
         public void t2_creating_posts_with_content_and_or_description()
         {
-            
+
         }
     }
 }

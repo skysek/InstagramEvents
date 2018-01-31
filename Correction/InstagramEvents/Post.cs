@@ -7,7 +7,7 @@ namespace InstagramEvents
     public class Post
     {
 
-        public Post(int index, List<Image> content, string description = null)
+        public Post(int index, User poster, Image content, string description = null)
         {
             throw new NotImplementedException();
         }
@@ -22,7 +22,7 @@ namespace InstagramEvents
             get { throw new NotImplementedException(); }
         }
 
-        public List<Image> Content
+        public Image Content
         {
             get { throw new NotImplementedException(); }
         }

@@ -15,11 +15,15 @@ namespace InstagramEvents
         readonly List<Comment> _comments;
         readonly DateTime _posted_at;
 
-        public Post(int index, Image content, string description = null)
+        public Post(int index, User poster, Image content, string description = null)
         {
             _index = index;
+            _poster = poster;
             _content = content;
             _description = description;
+            _likes = new List<Like>();
+            _comments = new List<Comment>();
+            _posted_at = DateTime.Now;
         }
 
         public int Index => _index;
