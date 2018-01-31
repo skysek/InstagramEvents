@@ -6,6 +6,9 @@ namespace InstagramEvents
 {
     public class Message
     {
+        readonly int _index;
+        readonly string _content;
+        readonly DateTime _posted_at;
 
         internal Message()
         {

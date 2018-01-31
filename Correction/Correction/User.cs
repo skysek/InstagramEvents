@@ -5,6 +5,21 @@ namespace InstagramEvents
 {
     public class User
     {
+        string _surname;
+        string _name;
+        readonly string _username;
+        string _website;
+        string _biography;
+        string _email;
+        int _phone;
+        readonly List<Post> _posts;
+        readonly List<User> _followers;
+        readonly List<User> _followings;
+        bool _isSignedUp;
+        bool _isLive;
+        readonly Messenger _messenger;
+        readonly List<User> _facebook_friends;
+        readonly List<User> _blacklist;
 
         public User( string username )
         {

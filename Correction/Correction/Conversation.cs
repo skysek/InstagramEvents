@@ -7,6 +7,12 @@ namespace InstagramEvents
     public class Conversation
     {
 
+        readonly int _index;
+        readonly User _sender;
+        readonly User _receiver;
+        readonly List<Message> _messages;
+        readonly DateTime _last_message_at;
+
         internal Conversation()
         {
             throw new NotImplementedException();

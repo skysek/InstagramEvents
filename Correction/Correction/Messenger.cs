@@ -4,10 +4,13 @@ using System.Text;
 
 namespace InstagramEvents
 {
-    public class Conversation
+    public class Messenger
     {
+        readonly int _index;
+        readonly User _user;
+        readonly List<Conversation> _conversations;
 
-        internal Conversation()
+        internal Messenger()
         {
             throw new NotImplementedException();
         }
@@ -17,34 +20,25 @@ namespace InstagramEvents
             get { throw new NotImplementedException(); }
         }
 
-        public User Sender
+        public User User
         {
             get { throw new NotImplementedException(); }
         }
 
-        public User Receiver
+        public List<Conversation> Conversations
         {
             get { throw new NotImplementedException(); }
         }
 
-        public List<Message> Messages
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public DateTime Last_Message_at
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public Message AddMessage(string msg)
+        public Conversation AddConversation(User otherUser)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteMessage(int idx)
+        public void DeleteConversation(int idx)
         {
             throw new NotImplementedException();
         }
+
     }
 }
