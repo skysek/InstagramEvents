@@ -6,38 +6,29 @@ namespace InstagramEvents
 {
     public class Messenger
     {
-        readonly int _index;
         readonly User _user;
         readonly List<Conversation> _conversations;
 
-        internal Messenger()
+        internal Messenger(User user)
         {
-            throw new NotImplementedException();
+            _user = user;
+            _conversations = new List<Conversation>();
         }
 
-        public int Index
+        public User User => _user;
+
+        public List<Conversation> Conversations => _conversations;
+
+        public Conversation AddConversation(User receiver)
         {
-            get { throw new NotImplementedException(); }
+            Conversation conv = new Conversation(_user, receiver);
+            return conv;
         }
 
-        public User User
+        public void DeleteConversation(User receiver)
         {
-            get { throw new NotImplementedException(); }
-        }
-
-        public List<Conversation> Conversations
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public Conversation AddConversation(User otherUser)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteConversation(int idx)
-        {
-            throw new NotImplementedException();
+            Conversation rm = _conversations.Find(c => c.Receiver.Equals(receiver));
+            _conversations.Remove(rm);
         }
 
     }

@@ -10,7 +10,7 @@ namespace InstagramEvents
         Post _post;
         Comment _comment;
 
-        public Like(User liker, dynamic content)
+        internal Like(User liker, dynamic content)
         {
             _liker = liker;
             if (content.GetType() == Post.GetType())

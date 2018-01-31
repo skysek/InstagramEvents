@@ -7,37 +7,41 @@ namespace InstagramEvents
 {
     public class Comment
     {
+        readonly int _index;
         readonly User _poster;
         readonly Post _post;
-        readonly Comment _comment;
+        readonly Comment _parent_comment;
         readonly string _message;
         readonly List<Like> _likes;
         readonly List<Comment> _answers;
         readonly DateTime _posted_at;
 
-        public Comment(User poster, dynamic content, string message, List<Like> likes, List<Comment> answers, DateTime posted_at)
+        internal Comment(int index, User poster, dynamic parent, string message)
         {
+            _index = index;
             _poster = poster;
-            if (content.GetType() == Post.GetType())
+            if (parent.GetType() == Post.GetType())
             {
-                _post = content;
+                _post = parent;
             }
-            else if (content.GetType() == this.GetType())
+            else if (parent.GetType() == this.GetType())
             {
-                _comment = content;
+                _parent_comment = parent;
             }
             else
             {
                 throw new ArgumentException();
             }
             _message = message;
-            _likes = likes;
-            _answers = answers;
-            _posted_at = posted_at;
+            _likes = new List<Like>();
+            _answers = new List<Comment>();
+            _posted_at = DateTime.Now;
         }
 
+        public int Index => _index;
         public User Poster => _poster;
         public Post Post => _post;
+        public Comment ParentComment => _parent_comment;
         public string Message => _message;
         public List<Like> Likes => _likes;
         public List<Comment> Answers => _answers;
@@ -52,19 +56,16 @@ namespace InstagramEvents
 
         public Comment AddAnswer(User poster, String message)
         {
-            Comment c = new Comment(poster, this, message, null, null, DateTime.Now);
-            _answers.Add(c);
-            return c;
+            int idx = _answers.Count + 1;
+            Comment a = new Comment(idx, poster, this, message);
+            _answers.Add(a);
+            return a;
         }
 
-        public void Delete()
+        public void DeleteAnswer(int idx)
         {
-            
-        }
-
-        public void Report()
-        {
-            
+            Comment rm = _answers.Find(a => a.Index.Equals(idx));
+            _answers.Remove(rm);
         }
     }
 }

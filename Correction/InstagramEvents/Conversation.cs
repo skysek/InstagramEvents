@@ -12,11 +12,6 @@ namespace InstagramEvents
             throw new NotImplementedException();
         }
 
-        public int Index
-        {
-            get { throw new NotImplementedException(); }
-        }
-
         public User Sender
         {
             get { throw new NotImplementedException(); }

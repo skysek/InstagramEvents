@@ -6,51 +6,38 @@ namespace InstagramEvents
 {
     public class Conversation
     {
-
-        readonly int _index;
         readonly User _sender;
         readonly User _receiver;
         readonly List<Message> _messages;
         readonly DateTime _last_message_at;
 
-        internal Conversation()
+        internal Conversation(User sender, User receiver)
         {
-            throw new NotImplementedException();
+            _sender = sender;
+            _receiver = receiver;
+            _messages = new List<Message>();
+            _last_message_at = new DateTime();
         }
 
-        public int Index
-        {
-            get { throw new NotImplementedException(); }
-        }
+        public User Sender => _sender;
 
-        public User Sender
-        {
-            get { throw new NotImplementedException(); }
-        }
+        public User Receiver => _receiver;
 
-        public User Receiver
-        {
-            get { throw new NotImplementedException(); }
-        }
+        public List<Message> Messages => _messages;
 
-        public List<Message> Messages
-        {
-            get { throw new NotImplementedException(); }
-        }
+        public DateTime Last_message_at => _last_message_at;
 
-        public DateTime Last_Message_at
+        public Message AddMessage(User sender, string msg)
         {
-            get { throw new NotImplementedException(); }
-        }
-
-        public Message AddMessage(string msg)
-        {
-            throw new NotImplementedException();
+            int idx = _messages.Count + 1;
+            Message m = new Message(idx, sender, msg);
+            return m;
         }
 
         public void DeleteMessage(int idx)
         {
-            throw new NotImplementedException();
+            Message rm = _messages.Find(m => m.Index.Equals(idx));
+            _messages.Remove(rm);
         }
     }
 }

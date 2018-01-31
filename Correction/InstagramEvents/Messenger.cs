@@ -7,14 +7,9 @@ namespace InstagramEvents
     public class Messenger
     {
 
-        internal Messenger()
+        internal Messenger(User user)
         {
             throw new NotImplementedException();
-        }
-
-        public int Index
-        {
-            get { throw new NotImplementedException(); }
         }
 
         public User User
@@ -27,12 +22,12 @@ namespace InstagramEvents
             get { throw new NotImplementedException(); }
         }
 
-        public Conversation AddConversation(User otherUser)
+        public Conversation AddConversation(User receiver)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteConversation(int idx)
+        public void DeleteConversation(User receiver)
         {
             throw new NotImplementedException();
         }

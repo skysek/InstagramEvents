@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace InstagramEvents
 {
@@ -21,127 +22,83 @@ namespace InstagramEvents
         readonly List<User> _facebook_friends;
         readonly List<User> _blacklist;
 
-        public User( string username )
+        public User(string username)
         {
-            throw new NotImplementedException();
+            _username = username;
+            _posts = new List<Post>();
+            _followers = new List<User>();
+            _followings = new List<User>();
+            _messenger = new Messenger(this);
+            _facebook_friends = new List<User>();
+            _blacklist = new List<User>();
         }
 
-        public string Surname
+        public string Surname { get => _surname; set => _surname = value; }
+        public string Name { get => _name; set => _name = value; }
+        public string Username => _username;
+        public string Website { get => _website; set => _website = value; }
+        public string Biography { get => _biography; set => _biography = value; }
+        public string Email { get => _email; set => _email = value; }
+        public int Phone { get => _phone; set => _phone = value; }
+        public List<Post> Posts => _posts;
+        public List<User> Followers => _followers;
+        public List<User> Followings => _followings;
+        public bool IsSignedUp { get => _isSignedUp; set => _isSignedUp = value; }
+        public bool IsLive { get => _isLive; set => _isLive = value; }
+        public Messenger Messenger => _messenger;
+        public List<User> Facebook_friends => _facebook_friends;
+        public List<User> Blacklist => _blacklist;
+
+        public void Follow(User user)
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            _followings.Add(user);
+            user.Followers.Add(this);
+            // Trigger un event
         }
 
-        public string Name
+        public void Unfollow(User user)
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            _followings.Remove(user);
+            user.Followers.Remove(this);
+            // Trigger un event
         }
 
-        public string Username
+        public Post AddPost(User user, Image content, string description)
         {
-            get { throw new NotImplementedException(); }
+            int idx = _posts.Count + 1;
+            Post p = new Post(idx, content, description);
+            _posts.Add(p);
+            return p;
         }
 
-        public string Website
+        public void DeletePost(int idx)
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            Post rm = _posts.Find(p => p.Index.Equals(idx));
+            _posts.Remove(rm);
         }
 
-        public string Biography
+        public void LikePost(Post post)
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            post.AddLike(this);
+            // Trigger un event
         }
 
-        public string Email
+        public void LikeComment(Comment comment)
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            comment.AddLike(this);
+            // Trigger un event
         }
 
-        public int Phone
+        public void Comment(Post post, string msg)
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            post.AddComment(this, msg);
+            // Trigger un event
         }
 
-        public List<Post> Posts
+        public void Answer(Comment comment, string msg)
         {
-            get { throw new NotImplementedException(); }
-        }
-
-        public List<User> Followers
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public List<User> Followings
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public bool IsSignedUp
-        {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
-        }
-
-        public string IsLive
-        {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
-        }
-
-        public Messenger Messenger
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public List<User> Facebook_friends
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public List<User> Blacklist
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public User Find(string username)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Follow(string username)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Unfollow(string username)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void LikePost(int postIndex)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void LikeComment(int commentIndex)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Comment(int postIndex)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Answer(int commentIndex)
-        {
-            throw new NotImplementedException();
+            comment.AddAnswer(this, msg);
+            // Trigger un event
         }
     }
 }

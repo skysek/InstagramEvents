@@ -9,69 +9,52 @@ namespace InstagramEvents
 
         readonly int _index;
         readonly User _poster;
-        readonly List<Image> _content;
+        readonly Image _content;
         readonly string _description;
         readonly List<Like> _likes;
         readonly List<Comment> _comments;
         readonly DateTime _posted_at;
 
-        public Post(List<Image> content, string description = null)
+        public Post(int index, Image content, string description = null)
         {
-            throw new NotImplementedException();
+            _index = index;
+            _content = content;
+            _description = description;
         }
 
-        public int Index
-        {
-            get { throw new NotImplementedException(); }
-        }
+        public int Index => _index;
 
-        public User Poster
-        {
-            get { throw new NotImplementedException(); }
-        }
+        public User Poster => _poster;
 
-        public List<Image> Content
-        {
-            get { throw new NotImplementedException(); }
-        }
+        public Image Content => _content;
 
-        public string Description
-        {
-            get { throw new NotImplementedException(); }
-        }
+        public string Description => _description;
 
-        public List<Like> Likes
-        {
-            get { throw new NotImplementedException(); }
-        }
+        public List<Like> Likes => _likes;
 
-        public List<Comment> Comments
-        {
-            get { throw new NotImplementedException(); }
-        }
+        public List<Comment> Comments => _comments;
 
-        public DateTime Posted_at
-        {
-            get { throw new NotImplementedException(); }
-        }
+        public DateTime Posted_at => _posted_at;
 
         public Comment AddComment(User poster, string message)
         {
-            throw new NotImplementedException();
+            int idx = _comments.Count + 1;
+            Comment c = new Comment(idx, poster, this, message);
+            _comments.Add(c);
+            return c;
         }
 
         public Like AddLike(User liker)
         {
             Like l = new Like(liker, this);
-            _likes.Add(l);
+            Likes.Add(l);
             return l;
         }
 
         public void DeleteComment(int idx)
         {
-            throw new NotImplementedException();
+            Comment rm = _comments.Find(c => c.Index.Equals(idx));
+            _comments.Remove(rm);
         }
-
-
     }
 }

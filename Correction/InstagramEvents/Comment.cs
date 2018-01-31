@@ -7,41 +7,64 @@ namespace InstagramEvents
 {
     public class Comment
     {
-        public User _poster;
-        public String _message;
-        public User _like;
-        public Comment _answer;
-        public DateTime _postedDate;
-
-        public Comment(User poster, String message, User like, Comment answer, DateTime postedDate)
+        internal Comment(int index, User poster, dynamic parent, string message)
         {
-            _poster = poster;
-            _message = message;
-            _like = like;
-            _answer = answer;
-            _postedDate = postedDate;
+            throw new NotImplementedException();
         }
 
-        public User Poster => _poster;
-        public String Message => _message;
-        public User Like => _like;
-        public Comment Answer => _answer;
-        public DateTime PostDate => _postedDate;
-
-        public Comment Add(User poster, String message)
+        public int Index
         {
-            Comment c = new Comment(poster,message,null,null,DateTime.Now);
-            return c;
+            get { throw new NotImplementedException(); }
         }
 
-        public void Delete()
+        public User Poster
         {
-            
+            get { throw new NotImplementedException(); }
         }
 
-        public void Report()
+        public Post Post
         {
-            
+            get { throw new NotImplementedException(); }
+        }
+
+        public Comment ParentComment
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public string Message
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public List<Like> Likes
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public List<Comment> Comments
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public DateTime PostedAt
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public Comment AddLike(User liker)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Comment AddAnswer(User poster, String message)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteAnswer(int idx)
+        {
+            throw new NotImplementedException();
         }
     }
 }
