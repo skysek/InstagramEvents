@@ -46,6 +46,7 @@
     <PackageReference Include="NUnit">
       <Version>2.6.4</Version>
     </PackageReference>
+    <PackageReference Include="FluentAssertions" Version="4.19.4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
