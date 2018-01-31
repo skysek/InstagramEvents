@@ -94,37 +94,42 @@ namespace InstagramEvents
             get { throw new NotImplementedException(); }
         }
 
-        public User Find(string username)
+        public void Follow(User user)
         {
             throw new NotImplementedException();
         }
 
-        public void Follow(string username)
+        public void Unfollow(User user)
         {
             throw new NotImplementedException();
         }
 
-        public void Unfollow(string username)
+        public Post AddPost(User user)
         {
             throw new NotImplementedException();
         }
 
-        public void LikePost(int postIndex)
+        public void DeletePost(User user)
         {
             throw new NotImplementedException();
         }
 
-        public void LikeComment(int commentIndex)
+        public void LikePost(Post post)
         {
             throw new NotImplementedException();
         }
 
-        public void Comment(int postIndex)
+        public void LikeComment(Comment comment)
         {
             throw new NotImplementedException();
         }
 
-        public void Answer(int commentIndex)
+        public void Comment(Post post, string msg)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Answer(Comment comment, string msg)
         {
             throw new NotImplementedException();
         }

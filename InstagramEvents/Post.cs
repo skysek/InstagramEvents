@@ -7,7 +7,7 @@ namespace InstagramEvents
     public class Post
     {
 
-        public Post(List<Image> content, string description = null)
+        public Post(int index, List<Image> content, string description = null)
         {
             throw new NotImplementedException();
         }
@@ -57,16 +57,9 @@ namespace InstagramEvents
             throw new NotImplementedException();
         }
 
-        public Like RemoveLike(User liker)
-        {
-            throw new NotImplementedException();
-        }
-
         public void DeleteComment(int idx)
         {
             throw new NotImplementedException();
         }
-
-
     }
 }

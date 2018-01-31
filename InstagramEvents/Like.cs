@@ -6,19 +6,25 @@ namespace InstagramEvents
 {
     public class Like
     {
-        public User _like;
-        public Post _post;
-        public Comment _comment;
 
-        public Like(User like, Post post, Comment comment)
+        public Like(User liker, dynamic content)
         {
-            _like = like;
-            _post = post;
-            _comment = comment;
+            throw new NotImplementedException();
         }
 
-        public User Likes => _like;
-        public Post Posts => _post;
-        public Comment Comments => _comment;
+        public User Poster
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public Post Post
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public Comment Comment
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 }
