@@ -7,7 +7,7 @@ namespace InstagramEvents
     public class Post
     {
 
-        public Post(int index, User poster, Image content, string description = null)
+        internal Post(int index, User poster, Image content, string description = "")
         {
             throw new NotImplementedException();
         }

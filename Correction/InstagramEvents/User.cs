@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace InstagramEvents
 {
@@ -104,12 +105,12 @@ namespace InstagramEvents
             throw new NotImplementedException();
         }
 
-        public Post AddPost(User user)
+        public Post AddPost(Image content, string description)
         {
             throw new NotImplementedException();
         }
 
-        public void DeletePost(User user)
+        public void DeletePost(int idx)
         {
             throw new NotImplementedException();
         }
@@ -140,6 +141,11 @@ namespace InstagramEvents
         }
 
         public void StopLive()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void BlockUser(User user)
         {
             throw new NotImplementedException();
         }
