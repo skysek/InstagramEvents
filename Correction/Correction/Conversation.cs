@@ -34,10 +34,9 @@ namespace InstagramEvents
             return m;
         }
 
-        public void DeleteMessage(int idx)
+        public void DeleteMessage(Message message)
         {
-            Message rm = _messages.Find(m => m.Index.Equals(idx));
-            _messages.Remove(rm);
+            _messages.Remove(message);
         }
     }
 }

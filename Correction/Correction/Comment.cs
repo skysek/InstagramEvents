@@ -24,7 +24,7 @@ namespace InstagramEvents
             {
                 _post = parent;
             }
-            else if (parent.GetType() == this.GetType())
+            else if (parent.GetType() == typeof(Comment))
             {
                 _parent_comment = parent;
             }
@@ -62,10 +62,9 @@ namespace InstagramEvents
             return a;
         }
 
-        public void DeleteAnswer(int idx)
+        public void DeleteAnswer(Comment answer)
         {
-            Comment rm = _answers.Find(a => a.Index.Equals(idx));
-            _answers.Remove(rm);
+            _answers.Remove(answer);
         }
     }
 }

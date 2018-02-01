@@ -17,10 +17,8 @@ namespace InstagramEvents
         readonly List<Post> _posts;
         readonly List<User> _followers;
         readonly List<User> _followings;
-        bool _isSignedUp;
         bool _isLive;
         readonly Messenger _messenger;
-        readonly List<User> _facebook_friends;
         readonly List<User> _blacklist;
         private NotifEvent _notifEvent;
 
@@ -28,13 +26,11 @@ namespace InstagramEvents
         {
             if (String.IsNullOrEmpty(username)) throw new ArgumentException();
             _username = username;
-            _isSignedUp = true;
             _isLive = false;
             _posts = new List<Post>();
             _followers = new List<User>();
             _followings = new List<User>();
             _messenger = new Messenger(this);
-            _facebook_friends = new List<User>();
             _blacklist = new List<User>();
             _notifEvent = new NotifEvent();
             _notifEvent.BeforeNotifEvent += _notifEvent_BeforeNotifEvent;
@@ -55,10 +51,8 @@ namespace InstagramEvents
         public List<Post> Posts => _posts;
         public List<User> Followers => _followers;
         public List<User> Followings => _followings;
-        public bool IsSignedUp { get => _isSignedUp; set => _isSignedUp = value; }
         public bool IsLive { get => _isLive; set => _isLive = value; }
         public Messenger Messenger => _messenger;
-        public List<User> Facebook_friends => _facebook_friends;
         public List<User> Blacklist => _blacklist;
 
         public void Follow(User user)
@@ -74,42 +68,46 @@ namespace InstagramEvents
             user.Followers.Remove(this);
         }
 
-        public Post AddPost(Image content, string description = null)
+        public Post AddPost(Image content, string description = "")
         {
+            if (content.Equals(null) || description.Equals(null)) throw new NullReferenceException();
             int idx = _posts.Count + 1;
             Post p = new Post(idx, this, content, description);
             _posts.Add(p);
             return p;
         }
 
-        public void DeletePost(int idx)
+        public void DeletePost(Post post)
         {
-            Post rm = _posts.Find(p => p.Index.Equals(idx));
-            _posts.Remove(rm);
+            _posts.Remove(post);
         }
 
         public void LikePost(Post post, User user)
         {
-            post.AddLike(this);
+            Like l = post.AddLike(this);
             _notifEvent.LikePost(post,user);
+            return l;
         }
 
-        public void LikeComment(Comment comment)
+        public Like LikeComment(Comment comment)
         {
-            comment.AddLike(this);
+            Like l = comment.AddLike(this);
             _notifEvent.LikeComment(comment,this);
+            return l;
         }
 
         public void Comment(User user,Post post, string msg)
         {
-            post.AddComment(this, msg);
+            Comment c = post.AddComment(this, msg);
            _notifEvent.Comment(user,post,msg);
+            return c;
         }
 
-        public void Answer(User u,Comment comment, string msg)
+        public Comment Answer(Comment comment, string msg)
         {
-            comment.AddAnswer(this, msg);
+            Comment c = comment.AddAnswer(this, msg);
             _notifEvent.Answer(u,comment,msg);
+            return c;
         }
 
         public void StartLive()

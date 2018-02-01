@@ -37,7 +37,7 @@ namespace InstagramEvents
             throw new NotImplementedException();
         }
 
-        public void DeleteMessage(int idx)
+        public void DeleteMessage(Message message)
         {
             throw new NotImplementedException();
         }

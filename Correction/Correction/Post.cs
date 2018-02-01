@@ -15,9 +15,8 @@ namespace InstagramEvents
         readonly List<Comment> _comments;
         readonly DateTime _posted_at;
 
-        internal Post(int index, User poster, Image content, string description = "")
+        internal Post(int index, User poster, Image content, string description)
         {
-            if (content.Equals(null) || description.Equals(null)) throw new NullReferenceException();
             _index = index;
             _poster = poster;
             _content = content;
@@ -56,10 +55,9 @@ namespace InstagramEvents
             return l;
         }
 
-        public void DeleteComment(int idx)
+        public void DeleteComment(Comment comment)
         {
-            Comment rm = _comments.Find(c => c.Index.Equals(idx));
-            _comments.Remove(rm);
+            _comments.Remove(comment);
         }
     }
 }

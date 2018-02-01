@@ -73,39 +73,19 @@ namespace InstagramEvents.Tests
         }
 
         [Test]
-        public void t5_posts_are_created_by_user_with_optional_description()
+        public void t5_users_can_add_and_delete_their_posts()
         {
+
             User u = new User("Alex1234");
             Image img = new Bitmap(1, 1);
 
-            {
-                Post p = u.AddPost(img);
+            Post p = u.AddPost(img, "Test created post");
 
-                u.Posts.Should().Contain(p);
-                p.Poster.Should().Be(u);
-                p.Index.Should().NotBe(null);
-                p.Index.Should().NotBe(0);
-                p.Poster.Should().Be(u);
-                p.Content.Should().Be(img);
-                p.Description.Should().BeNullOrEmpty();
-                p.Likes.Should().BeNullOrEmpty();
-                p.Comments.Should().BeNullOrEmpty();
-                p.Posted_at.Should().NotBe(new DateTime());
-            }
+            u.Posts.Should().Contain(p);
 
-            {
-                Post p = u.AddPost(img, "My first image posted");
+            u.DeletePost(p);
 
-                u.Posts.Should().Contain(p);
-                p.Index.Should().NotBe(null);
-                p.Index.Should().NotBe(0);
-                p.Poster.Should().Be(u);
-                p.Content.Should().Be(img);
-                p.Description.Should().Equals("My first image posted");
-                p.Likes.Should().BeNullOrEmpty();
-                p.Comments.Should().BeNullOrEmpty();
-                p.Posted_at.Should().NotBe(new DateTime());
-            }
+            u.Posts.Should().NotContain(p);
 
         }
     }
