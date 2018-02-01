@@ -23,29 +23,32 @@ namespace Correction
             Console.WriteLine($"{user.Username} a commencé à vous suivre");
         }
 
-        public void LikePost(Post post)
+        public void LikePost(Post post, User u)
         {
             if (BeforeNotifEvent != null) BeforeNotifEvent();
-            Console.WriteLine($"{post.Poster} a aimé votre contenu {post.Description}");
+            Console.WriteLine($" {post.Poster.Surname} : {u.Surname} a aimé votre contenu {post.Description}");
         }
 
-        public void LikeComent(Comment comment)
+        public void LikeComment(Comment comment, User u)
         {
             if (BeforeNotifEvent != null) BeforeNotifEvent();
-            Console.WriteLine($"{comment.Poster.Username} a aimé votre contenu : {comment.Message}");
+            Console.WriteLine($"{comment.Poster.Username} : {u.Surname} a aimé votre commentaire : {comment.Message}");
         }
 
-        public void Comment(Post post, String msg)
+        public void Comment(User user,Post post, String msg)
         {
             if (BeforeNotifEvent != null) BeforeNotifEvent();
-            Console.WriteLine($"{post.Poster.Username} a commenté votre post : {msg}");
+            Console.WriteLine($"{post.Poster.Username} : {user.Surname} a commenté votre post : {msg}");
         }
 
-        public void Answer(Comment comment, string msg)
+        public void Answer(User u, Comment comment, string msg)
         {
             if (BeforeNotifEvent != null) BeforeNotifEvent();
-            Console.WriteLine($"{comment.Poster.Username} a répondu à votre commantaire : {msg}");
-            Console.WriteLine($"{comment.Post.Poster.Username} un commentaire a été posté sur votre post : {msg}");
+            Console.WriteLine($"{u.Surname} a répondu à votre commantaire : {msg}");
+            if (u.Surname != comment.Post.Poster.Surname)
+            {
+                Console.WriteLine($"{comment.Post.Poster.Username} un commentaire a été posté sur votre post : {msg}");
+            }
         }
 
         public void StartLive(User user)
@@ -60,7 +63,7 @@ namespace Correction
         public void SendMessage(User user, Message m)
         {
             if (BeforeNotifEvent != null) BeforeNotifEvent();
-            Console.WriteLine($"{m.Sender.Username} vous a envoyé un nouveau message");
+            Console.WriteLine($" {user.Surname} : {m.Sender.Username} vous a envoyé un nouveau message : {m.Content}");
         }
     }
 }

@@ -20,7 +20,7 @@ namespace InstagramEvents
         {
             _index = index;
             _poster = poster;
-            if (parent.GetType() == Post.GetType())
+            if (parent.GetType() == typeof(Post))
             {
                 _post = parent;
             }

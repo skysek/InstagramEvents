@@ -88,28 +88,28 @@ namespace InstagramEvents
             _posts.Remove(rm);
         }
 
-        public void LikePost(Post post, User user)
+        public void LikePost(Post post)
         {
             post.AddLike(this);
-            _notifEvent.LikePost(post,user);
+            _notifEvent.LikePost(post);
         }
 
         public void LikeComment(Comment comment)
         {
             comment.AddLike(this);
-            _notifEvent.LikeComment(comment,this);
+            _notifEvent.LikeComent(comment);
         }
 
-        public void Comment(User user,Post post, string msg)
+        public void Comment(Post post, string msg)
         {
             post.AddComment(this, msg);
-           _notifEvent.Comment(user,post,msg);
+           _notifEvent.Comment(post,msg);
         }
 
-        public void Answer(User u,Comment comment, string msg)
+        public void Answer(Comment comment, string msg)
         {
             comment.AddAnswer(this, msg);
-            _notifEvent.Answer(u,comment,msg);
+            _notifEvent.Answer(comment,msg);
         }
 
         public void StartLive()
@@ -120,6 +120,7 @@ namespace InstagramEvents
 
         public void StopLive()
         {
+<<<<<<< HEAD
            _isLive = false;
         }
 
@@ -128,6 +129,14 @@ namespace InstagramEvents
             Conversation c = this.Messenger.AddConversation(user);
             Message m = c.AddMessage(this, msg);
             _notifEvent.SendMessage(user,m);
+=======
+            _isLive = false;
+        }
+
+        public void BlockUser(User user)
+        {
+            _blacklist.Add(user);
+>>>>>>> 322c115a83df749a2b8bc313523c3ff26473f2cf
         }
     }
 }

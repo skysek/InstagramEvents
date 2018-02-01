@@ -1,0 +1,120 @@
+﻿using Correction;
+using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Linq;
+using System.Net.Http.Headers;
+using System.Net.Mime;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace InstagramEvents.Tests
+{
+    [TestFixture]
+    public class T3EventRaisingAndHandling
+    {
+        [Test]
+        public void t1_follow_an_user_trigger_an_event()
+        {
+            NotifEvent notifEvent = new NotifEvent();
+            User u1 = new User("LoicD");
+            User u2 = new User("AlexS");
+            User u3 = new User("Pouloulou");
+            u1.Name = "DONNE";
+            u2.Name = "BABEU";
+            u3.Name = "Reseaux";
+            u2.Follow(u1);
+            u3.Follow(u1);
+            u1.StartLive();
+        }
+
+        [Test]
+        public void t2_send_a_message_an_user_trigger_an_event()
+        {
+            NotifEvent notifEvent = new NotifEvent();
+            User u1 = new User("LoicD");
+            User u2 = new User("AlexS");
+            User u3 = new User("Pouloulou");
+            u1.Name = "DONNE";
+            u2.Name = "BABEU";
+            u3.Name = "Reseaux";
+            u1.SendMessage(u2, "Le bando");
+        }
+
+        [Test]
+        public void t3_like_a_post_trigger_an_event()
+        {
+            User u1 = new User("LoicD");
+            User u2 = new User("KévinD");
+            u2.Surname = "Pouloulou";
+            u1.Surname = "Lolo";
+            Image i = new Bitmap(1,1);
+            Post p = u1.AddPost(i, "Golden moments");
+            u2.LikePost(p,u2);
+        }
+
+        [Test]
+        public void t4_like_a_comment_trigger_an_event()
+        {
+            User u1 = new User("LoicD");
+            User u2 = new User("KévinD");
+            u2.Surname = "Pouloulou";
+            u1.Surname = "Lolo";
+            Image i = new Bitmap(1, 1);
+            Post p = u1.AddPost(i, "Golden moments");
+             u2.Comment(u2,p,"yolo");
+            u1.LikeComment(p.Comments[0]);
+        }
+
+        [Test]
+        public void t5_comment_a_post_trigger_an_event()
+        {
+            User u1 = new User("LoicD");
+            User u2 = new User("KévinD");
+            u2.Surname = "Pouloulou";
+            u1.Surname = "Lolo";
+            Image i = new Bitmap(1, 1);
+            Post p = u1.AddPost(i, "Golden moments");
+            u2.Comment(u2,p,"beautiful");
+        }
+
+        [Test]
+        public void t6_answer_a_comment_trigger_an_event()
+        {
+            User u1 = new User("LoicD");
+            User u2 = new User("KévinD");
+            u2.Surname = "Pouloulou";
+            u1.Surname = "Lolo";
+            Image i = new Bitmap(1, 1);
+            Post p = u1.AddPost(i, "Golden moments");
+            u2.Comment(u2, p, "beautiful");
+            u1.Answer(u1,p.Comments[0],"Merci");
+        }
+
+        [Test]
+        public void t7_start_a_live_trigger_an_event()
+        {
+            User u1 = new User("LoicD");
+            User u2 = new User("KévinD");
+            User u3 = new User("LauranneD");
+            u2.Surname = "Pouloulou";
+            u1.Surname = "Lolo";
+            u3.Surname = "Laulau";
+            u2.Follow(u1);
+            u3.Follow(u1);
+            u1.StartLive();
+        }
+
+        [Test]
+        public void t8_send_a_message__trigger_an_event()
+        {
+            User u1 = new User("LoicD");
+            User u2 = new User("KévinD");
+            u2.Surname = "Pouloulou";
+            u1.Surname = "Lolo";
+            u1.SendMessage(u2,"Bitch");
+        }
+    }
+}
