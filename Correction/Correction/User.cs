@@ -26,6 +26,8 @@ namespace InstagramEvents
         {
             if (String.IsNullOrEmpty(username)) throw new ArgumentException();
             _username = username;
+            _isSignedUp = true;
+            _isLive = false;
             _posts = new List<Post>();
             _followers = new List<User>();
             _followings = new List<User>();
@@ -100,6 +102,18 @@ namespace InstagramEvents
         {
             comment.AddAnswer(this, msg);
             // Trigger un event
+        }
+
+        public void StartLive()
+        {
+            _isLive = true;
+            // Trigger un event
+        }
+
+        public void StopLive()
+        {
+            _isLive = false;
+            // Trigger un event (?)
         }
     }
 }

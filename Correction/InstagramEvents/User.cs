@@ -133,5 +133,15 @@ namespace InstagramEvents
         {
             throw new NotImplementedException();
         }
+
+        public void StartLive()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void StopLive()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

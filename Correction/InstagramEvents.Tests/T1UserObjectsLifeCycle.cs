@@ -18,7 +18,7 @@ namespace InstagramEvents.Tests
 
             {
                 User u = new User("Alex1234");
-                Assert.That(u.Username, Is.EqualTo("Alex1234"));
+                u.Username.Should().Equals("Alex1234");
                 u.Messenger.Should().NotBeNull();
             }
         }
