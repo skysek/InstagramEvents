@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using Correction;
 
 namespace InstagramEvents
 {
@@ -21,6 +22,7 @@ namespace InstagramEvents
         readonly Messenger _messenger;
         readonly List<User> _facebook_friends;
         readonly List<User> _blacklist;
+        private NotifEvent _notifEvent;
 
         public User(string username)
         {
@@ -34,6 +36,13 @@ namespace InstagramEvents
             _messenger = new Messenger(this);
             _facebook_friends = new List<User>();
             _blacklist = new List<User>();
+            _notifEvent = new NotifEvent();
+            _notifEvent.BeforeNotifEvent += _notifEvent_BeforeNotifEvent;
+        }
+
+        private void _notifEvent_BeforeNotifEvent()
+        {
+            Console.WriteLine("BeforNotifEventHandler: NotifEvent is going to print a value");
         }
 
         public string Surname { get => _surname; set => _surname = value; }
@@ -56,14 +65,13 @@ namespace InstagramEvents
         {
             _followings.Add(user);
             user.Followers.Add(this);
-            // Trigger un event
+           _notifEvent.NotifFollow(this);
         }
 
         public void Unfollow(User user)
         {
             _followings.Remove(user);
             user.Followers.Remove(this);
-            // Trigger un event
         }
 
         public Post AddPost(User user, Image content, string description)
@@ -83,37 +91,43 @@ namespace InstagramEvents
         public void LikePost(Post post)
         {
             post.AddLike(this);
-            // Trigger un event
+            _notifEvent.LikePost(post);
         }
 
         public void LikeComment(Comment comment)
         {
             comment.AddLike(this);
-            // Trigger un event
+            _notifEvent.LikeComent(comment);
         }
 
         public void Comment(Post post, string msg)
         {
             post.AddComment(this, msg);
-            // Trigger un event
+           _notifEvent.Comment(post,msg);
         }
 
         public void Answer(Comment comment, string msg)
         {
             comment.AddAnswer(this, msg);
-            // Trigger un event
+            _notifEvent.Answer(comment,msg);
         }
 
         public void StartLive()
         {
             _isLive = true;
-            // Trigger un event
+            _notifEvent.StartLive(this);
         }
 
         public void StopLive()
         {
-            _isLive = false;
-            // Trigger un event (?)
+           _isLive = false;
+        }
+
+        public void SendMessage(User user, string msg)
+        {
+            Conversation c = this.Messenger.AddConversation(user);
+            Message m = c.AddMessage(this, msg);
+            _notifEvent.SendMessage(user,m);
         }
     }
 }

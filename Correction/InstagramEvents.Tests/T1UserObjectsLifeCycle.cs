@@ -2,6 +2,7 @@
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Correction;
 using NUnit.Framework;
 using FluentAssertions;
 
@@ -46,5 +47,34 @@ namespace InstagramEvents.Tests
         {
 
         }
+
+        [Test]
+        public void t4_follow_an_user_trigger_an_event()
+        {
+            NotifEvent notifEvent = new NotifEvent();
+            User u1 = new User("LoicD");
+            User u2 = new User("AlexS");
+            User u3 = new User("Pouloulou");
+            u1.Name = "DONNE";
+            u2.Name = "BABEU";
+            u3.Name = "Reseaux";
+            u2.Follow(u1);
+            u3.Follow(u1);
+            u1.StartLive();
+        }
+
+        [Test]
+        public void t5_send_a_message_an_user_trigger_an_event()
+        {
+            NotifEvent notifEvent = new NotifEvent();
+            User u1 = new User("LoicD");
+            User u2 = new User("AlexS");
+            User u3 = new User("Pouloulou");
+            u1.Name = "DONNE";
+            u2.Name = "BABEU";
+            u3.Name = "Reseaux";
+            u1.SendMessage(u2,"Le bando que du sale");
+        }
+
     }
 }
