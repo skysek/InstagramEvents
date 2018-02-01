@@ -82,7 +82,7 @@ namespace InstagramEvents
             _posts.Remove(post);
         }
 
-        public void LikePost(Post post, User user)
+        public Like LikePost(Post post, User user)
         {
             Like l = post.AddLike(this);
             _notifEvent.LikePost(post,user);
@@ -96,14 +96,14 @@ namespace InstagramEvents
             return l;
         }
 
-        public void Comment(User user,Post post, string msg)
+        public Comment Comment(User user,Post post, string msg)
         {
             Comment c = post.AddComment(this, msg);
            _notifEvent.Comment(user,post,msg);
             return c;
         }
 
-        public Comment Answer(Comment comment, string msg)
+        public Comment Answer(Comment comment, string msg, User u)
         {
             Comment c = comment.AddAnswer(this, msg);
             _notifEvent.Answer(u,comment,msg);
