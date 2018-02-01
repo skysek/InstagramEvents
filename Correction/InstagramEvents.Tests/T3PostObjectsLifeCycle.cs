@@ -10,7 +10,7 @@ using System.Drawing;
 namespace InstagramEvents.Tests
 {
     [TestFixture]
-    public class T2PostObjectsLifeCycle
+    public class T3PostObjectsLifeCycle
     {
 
         [Test]

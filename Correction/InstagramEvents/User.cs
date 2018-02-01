@@ -104,22 +104,22 @@ namespace InstagramEvents
             throw new NotImplementedException();
         }
 
-        public void LikePost(Post post)
+        public Like LikePost(Post post)
         {
             throw new NotImplementedException();
         }
 
-        public void LikeComment(Comment comment)
+        public Like LikeComment(Comment comment)
         {
             throw new NotImplementedException();
         }
 
-        public void Comment(Post post, string msg)
+        public Comment Comment(Post post, string msg)
         {
             throw new NotImplementedException();
         }
 
-        public void Answer(Comment comment, string msg)
+        public Comment Answer(Comment comment, string msg)
         {
             throw new NotImplementedException();
         }

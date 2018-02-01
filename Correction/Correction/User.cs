@@ -74,28 +74,32 @@ namespace InstagramEvents
             _posts.Remove(post);
         }
 
-        public void LikePost(Post post)
+        public Like LikePost(Post post)
         {
-            post.AddLike(this);
+            Like l = post.AddLike(this);
             // Trigger un event
+            return l;
         }
 
-        public void LikeComment(Comment comment)
+        public Like LikeComment(Comment comment)
         {
-            comment.AddLike(this);
+            Like l = comment.AddLike(this);
             // Trigger un event
+            return l;
         }
 
-        public void Comment(Post post, string msg)
+        public Comment Comment(Post post, string msg)
         {
-            post.AddComment(this, msg);
+            Comment c = post.AddComment(this, msg);
             // Trigger un event
+            return c;
         }
 
-        public void Answer(Comment comment, string msg)
+        public Comment Answer(Comment comment, string msg)
         {
-            comment.AddAnswer(this, msg);
+            Comment c = comment.AddAnswer(this, msg);
             // Trigger un event
+            return c;
         }
 
         public void StartLive()

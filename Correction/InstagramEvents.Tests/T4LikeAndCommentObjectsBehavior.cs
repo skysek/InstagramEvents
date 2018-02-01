@@ -10,7 +10,7 @@ using System.Drawing;
 namespace InstagramEvents.Tests
 {
     [TestFixture]
-    class T3LikeAndCommentObjectsBehavior
+    class T4LikeAndCommentObjectsBehavior
     {
 
         [Test]
