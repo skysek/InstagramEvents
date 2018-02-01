@@ -14,7 +14,7 @@ using FluentAssertions;
 namespace InstagramEvents.Tests
 {
     [TestFixture]
-    public class T3EventRaisingAndHandling
+    public class T6EventRaisingAndHandling
     {
         [Test]
         public void t1_follow_an_user_trigger_an_event()
@@ -51,7 +51,7 @@ namespace InstagramEvents.Tests
             u1.Surname = "Lolo";
             Image i = new Bitmap(1,1);
             Post p = u1.AddPost(i, "Golden moments");
-            u2.LikePost(p,u2);
+            u2.LikePost(p);
         }
 
         [Test]
@@ -63,7 +63,7 @@ namespace InstagramEvents.Tests
             u1.Surname = "Lolo";
             Image i = new Bitmap(1, 1);
             Post p = u1.AddPost(i, "Golden moments");
-             u2.Comment(u2,p,"yolo");
+             u2.Comment(p,"yolo");
             u1.LikeComment(p.Comments[0]);
         }
 
@@ -76,7 +76,7 @@ namespace InstagramEvents.Tests
             u1.Surname = "Lolo";
             Image i = new Bitmap(1, 1);
             Post p = u1.AddPost(i, "Golden moments");
-            u2.Comment(u2,p,"beautiful");
+            u2.Comment(p,"beautiful");
         }
 
         [Test]
@@ -88,8 +88,8 @@ namespace InstagramEvents.Tests
             u1.Surname = "Lolo";
             Image i = new Bitmap(1, 1);
             Post p = u1.AddPost(i, "Golden moments");
-            u2.Comment(u2, p, "beautiful");
-            u1.Answer(u1,p.Comments[0],"Merci");
+            u2.Comment(p, "beautiful");
+            u1.Answer(p.Comments[0],"Merci");
         }
 
         [Test]

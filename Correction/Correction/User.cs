@@ -82,10 +82,10 @@ namespace InstagramEvents
             _posts.Remove(post);
         }
 
-        public Like LikePost(Post post, User user)
+        public Like LikePost(Post post)
         {
             Like l = post.AddLike(this);
-            _notifEvent.LikePost(post,user);
+            _notifEvent.LikePost(post,this);
             return l;
         }
 
@@ -96,17 +96,17 @@ namespace InstagramEvents
             return l;
         }
 
-        public Comment Comment(User user,Post post, string msg)
+        public Comment Comment(Post post, string msg)
         {
             Comment c = post.AddComment(this, msg);
-           _notifEvent.Comment(user,post,msg);
+           _notifEvent.Comment(this,post,msg);
             return c;
         }
 
-        public Comment Answer(Comment comment, string msg, User u)
+        public Comment Answer(Comment comment, string msg)
         {
             Comment c = comment.AddAnswer(this, msg);
-            _notifEvent.Answer(u,comment,msg);
+            _notifEvent.Answer(this,comment,msg);
             return c;
         }
 
@@ -119,6 +119,11 @@ namespace InstagramEvents
         public void StopLive()
         {
            _isLive = false;
+        }
+
+        public void BlockUser(User user)
+        {
+            _blacklist.Add(user);
         }
 
         public void SendMessage(User user, string msg)

@@ -26,7 +26,7 @@ namespace Correction
         public void LikePost(Post post, User u)
         {
             if (BeforeNotifEvent != null) BeforeNotifEvent("LikePost");
-            Console.WriteLine($" {post.Poster.Surname} : {u.Surname} a aimé votre contenu {post.Description}");
+            Console.WriteLine($" {post.Poster.Username} : {u.Surname} a aimé votre contenu {post.Description}");
         }
 
         public void LikeComment(Comment comment, User u)
