@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="T3LikeAndCommentObjectsBehavior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="T1UserObjectsLifeCycle.cs" />
     <Compile Include="T2PostObjectsLifeCycle.cs" />

@@ -62,7 +62,7 @@ namespace InstagramEvents
             throw new NotImplementedException();
         }
 
-        public void DeleteAnswer(int idx)
+        public void DeleteAnswer(Comment answer)
         {
             throw new NotImplementedException();
         }

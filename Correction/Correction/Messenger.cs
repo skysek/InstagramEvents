@@ -25,10 +25,9 @@ namespace InstagramEvents
             return conv;
         }
 
-        public void DeleteConversation(User receiver)
+        public void DeleteConversation(Conversation conversation)
         {
-            Conversation rm = _conversations.Find(c => c.Receiver.Equals(receiver));
-            _conversations.Remove(rm);
+            _conversations.Remove(conversation);
         }
 
     }

@@ -68,12 +68,6 @@ namespace InstagramEvents
             get { throw new NotImplementedException(); }
         }
 
-        public bool IsSignedUp
-        {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
-        }
-
         public string IsLive
         {
             get { throw new NotImplementedException(); }
@@ -81,11 +75,6 @@ namespace InstagramEvents
         }
 
         public Messenger Messenger
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public List<User> Facebook_friends
         {
             get { throw new NotImplementedException(); }
         }
@@ -110,7 +99,7 @@ namespace InstagramEvents
             throw new NotImplementedException();
         }
 
-        public void DeletePost(int idx)
+        public void DeletePost(Post post)
         {
             throw new NotImplementedException();
         }
