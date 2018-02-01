@@ -15,8 +15,9 @@ namespace InstagramEvents
         readonly List<Comment> _comments;
         readonly DateTime _posted_at;
 
-        public Post(int index, User poster, Image content, string description = null)
+        internal Post(int index, User poster, Image content, string description = "")
         {
+            if (content.Equals(null) || description.Equals(null)) throw new NullReferenceException();
             _index = index;
             _poster = poster;
             _content = content;

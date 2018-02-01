@@ -74,7 +74,7 @@ namespace InstagramEvents
             user.Followers.Remove(this);
         }
 
-        public Post AddPost(User user, Image content, string description)
+        public Post AddPost(Image content, string description = null)
         {
             int idx = _posts.Count + 1;
             Post p = new Post(idx, this, content, description);
