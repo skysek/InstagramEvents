@@ -40,9 +40,9 @@ namespace InstagramEvents
             _notifEvent.BeforeNotifEvent += _notifEvent_BeforeNotifEvent;
         }
 
-        private void _notifEvent_BeforeNotifEvent()
+         void _notifEvent_BeforeNotifEvent(string message)
         {
-            Console.WriteLine("BeforNotifEventHandler: NotifEvent is going to print a value");
+            Console.WriteLine($"BeforeNotifeEvent fires from {message}");
         }
 
         public string Surname { get => _surname; set => _surname = value; }

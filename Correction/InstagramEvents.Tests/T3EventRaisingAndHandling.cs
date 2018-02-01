@@ -9,6 +9,7 @@ using System.Net.Http.Headers;
 using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
+using FluentAssertions;
 
 namespace InstagramEvents.Tests
 {
@@ -18,7 +19,6 @@ namespace InstagramEvents.Tests
         [Test]
         public void t1_follow_an_user_trigger_an_event()
         {
-            NotifEvent notifEvent = new NotifEvent();
             User u1 = new User("LoicD");
             User u2 = new User("AlexS");
             User u3 = new User("Pouloulou");
@@ -27,7 +27,6 @@ namespace InstagramEvents.Tests
             u3.Name = "Reseaux";
             u2.Follow(u1);
             u3.Follow(u1);
-            u1.StartLive();
         }
 
         [Test]
