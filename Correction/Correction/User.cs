@@ -57,9 +57,16 @@ namespace InstagramEvents
 
         public void Follow(User user)
         {
-            _followings.Add(user);
-            user.Followers.Add(this);
-           _notifEvent.NotifFollow(this);
+            if (user.Blacklist.Contains(this))
+            {
+                throw new Exception("Impossible de follow cet utilisateur.");
+            }
+            else
+            {
+                _followings.Add(user);
+                user.Followers.Add(this);
+                _notifEvent.NotifFollow(this);
+            }
         }
 
         public void Unfollow(User user)
@@ -84,30 +91,61 @@ namespace InstagramEvents
 
         public Like LikePost(Post post)
         {
-            Like l = post.AddLike(this);
-            _notifEvent.LikePost(post,this);
-            return l;
+            if (post.Poster.Blacklist.Contains(this))
+            {
+                throw new Exception("Impossible de liker ce post.");
+            }
+            else
+            {
+                Like l = post.AddLike(this);
+                _notifEvent.LikePost(post, this);
+                return l;
+            }
         }
 
         public Like LikeComment(Comment comment)
         {
-            Like l = comment.AddLike(this);
-            _notifEvent.LikeComment(comment,this);
-            return l;
+            if (comment.Poster.Blacklist.Contains(this))
+            {
+                throw new Exception("Impossible de liker ce commentaire.");
+            }
+            else
+            {
+                Like l = comment.AddLike(this);
+                _notifEvent.LikeComment(comment, this);
+                return l;
+            }
+            
         }
 
         public Comment Comment(Post post, string msg)
         {
-            Comment c = post.AddComment(this, msg);
-           _notifEvent.Comment(this,post,msg);
-            return c;
+            if (post.Poster.Blacklist.Contains(this))
+            {
+                throw new Exception("Impossible de commenter ce post.");
+            }
+            else
+            {
+                Comment c = post.AddComment(this, msg);
+                _notifEvent.Comment(this, post, msg);
+                return c;
+            }
+            
         }
 
         public Comment Answer(Comment comment, string msg)
         {
-            Comment c = comment.AddAnswer(this, msg);
-            _notifEvent.Answer(this,comment,msg);
-            return c;
+            if (comment.Poster.Blacklist.Contains(this))
+            {
+                throw new Exception("Impossible de répondre à ce commentaire.");
+            }
+            else
+            {
+                Comment c = comment.AddAnswer(this, msg);
+                _notifEvent.Answer(this, comment, msg);
+                return c;
+            }
+            
         }
 
         public void StartLive()
@@ -124,13 +162,22 @@ namespace InstagramEvents
         public void BlockUser(User user)
         {
             _blacklist.Add(user);
+            this.Unfollow(user);
         }
 
         public void SendMessage(User user, string msg)
         {
-            Conversation c = this.Messenger.AddConversation(user);
-            Message m = c.AddMessage(this, msg);
-            _notifEvent.SendMessage(user,m);
+            if (user.Blacklist.Contains(this))
+            {
+                throw new Exception("Impossible d'envoyer un message à cet utilisateur.");
+            }
+            else
+            {
+                Conversation c = this.Messenger.AddConversation(user);
+                Message m = c.AddMessage(this, msg);
+                _notifEvent.SendMessage(user, m);
+            }
+            
         }
     }
 }

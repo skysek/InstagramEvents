@@ -49,11 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="T4LikeAndCommentObjectsBehavior.cs" />
+    <Compile Include="T3BlockingUsersConstraints.cs" />
+    <Compile Include="T5LikeAndCommentObjectsBehavior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="T1UserObjectsLifeCycle.cs" />
-    <Compile Include="T3PostObjectsLifeCycle.cs" />
-    <Compile Include="T6EventRaisingAndHandling.cs" />
+    <Compile Include="T4PostObjectsLifeCycle.cs" />
+    <Compile Include="T7EventRaisingAndHandling.cs" />
     <Compile Include="T2UserActions.cs" />
   </ItemGroup>
   <ItemGroup>

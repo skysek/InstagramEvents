@@ -14,7 +14,7 @@ using FluentAssertions;
 namespace InstagramEvents.Tests
 {
     [TestFixture]
-    public class T6EventRaisingAndHandling
+    public class T7EventRaisingAndHandling
     {
         [Test]
         public void t1_follow_an_user_trigger_an_event()
@@ -30,7 +30,7 @@ namespace InstagramEvents.Tests
         }
 
         [Test]
-        public void t2_send_a_message_an_user_trigger_an_event()
+        public void t2_send_a_message_to_an_user_trigger_an_event()
         {
             NotifEvent notifEvent = new NotifEvent();
             User u1 = new User("LoicD");
@@ -107,7 +107,7 @@ namespace InstagramEvents.Tests
         }
 
         [Test]
-        public void t8_send_a_message__trigger_an_event()
+        public void t8_send_a_message_trigger_an_event()
         {
             User u1 = new User("LoicD");
             User u2 = new User("KévinD");
