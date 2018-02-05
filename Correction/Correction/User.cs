@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using Correction;
 
 namespace InstagramEvents
 {
@@ -19,6 +18,7 @@ namespace InstagramEvents
         readonly List<User> _followings;
         bool _isLive;
         readonly Messenger _messenger;
+        readonly List<Notification> _notifications;
         readonly List<User> _blacklist;
         private NotifEvent _notifEvent;
 
@@ -31,6 +31,7 @@ namespace InstagramEvents
             _followers = new List<User>();
             _followings = new List<User>();
             _messenger = new Messenger(this);
+            _notifications = new List<Notification>();
             _blacklist = new List<User>();
             _notifEvent = new NotifEvent();
             _notifEvent.BeforeNotifEvent += _notifEvent_BeforeNotifEvent;
@@ -53,6 +54,7 @@ namespace InstagramEvents
         public List<User> Followings => _followings;
         public bool IsLive { get => _isLive; set => _isLive = value; }
         public Messenger Messenger => _messenger;
+        public List<Notification> Notifications => _notifications;
         public List<User> Blacklist => _blacklist;
 
         public void Follow(User user)
@@ -63,9 +65,17 @@ namespace InstagramEvents
             }
             else
             {
-                _followings.Add(user);
-                user.Followers.Add(this);
-                _notifEvent.NotifFollow(this);
+                if (user != this)
+                {
+                    _followings.Add(user);
+                    user.Followers.Add(this);
+                    _notifEvent.NotifFollow(this);
+                }
+                else
+                {
+                    throw new ArgumentException("Impossible de se follow soi-même.");
+                }
+                
             }
         }
 
@@ -86,7 +96,14 @@ namespace InstagramEvents
 
         public void DeletePost(Post post)
         {
-            _posts.Remove(post);
+            if (post.Poster == this)
+            {
+                _posts.Remove(post);
+            }
+            else
+            {
+                throw new MethodAccessException("Vous ne pouvez pas supprimer les posts d'autres utilisateurs.");
+            }
         }
 
         public Like LikePost(Post post)
@@ -161,8 +178,15 @@ namespace InstagramEvents
 
         public void BlockUser(User user)
         {
-            _blacklist.Add(user);
-            this.Unfollow(user);
+            if (user != this)
+            {
+                _blacklist.Add(user);
+                this.Unfollow(user);
+            }
+            else
+            {
+                throw new ArgumentException("Impossible de se bloquer soi-même.");
+            }
         }
 
         public void SendMessage(User user, string msg)
@@ -176,6 +200,28 @@ namespace InstagramEvents
                 Conversation c = this.Messenger.AddConversation(user);
                 Message m = c.AddMessage(this, msg);
                 _notifEvent.SendMessage(user, m);
+            }
+            
+        }
+
+        public Notification AddNotification(User sender, string message)
+        {
+            if (sender.Equals(null) || message.Equals(null) || message.Equals("")) throw new ArgumentException();
+            int idx = _notifications.Count + 1;
+            Notification n = new Notification(idx, sender, this, message);
+            _notifications.Add(n);
+            return n;
+        }
+
+        public void DeleteNotification(Notification notification)
+        {
+            if (notification.Receiver == this)
+            {
+                _notifications.Remove(notification);
+            }
+            else
+            {
+                throw new MethodAccessException("Vous ne pouvez pas supprimer les notifications d'autres utilisateurs.");
             }
             
         }

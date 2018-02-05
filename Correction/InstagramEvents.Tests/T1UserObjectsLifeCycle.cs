@@ -2,7 +2,6 @@
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using Correction;
 using System.Drawing;
 using NUnit.Framework;
 using FluentAssertions;
@@ -38,6 +37,7 @@ namespace InstagramEvents.Tests
             u.Followers.Should().BeNullOrEmpty();
             u.Followings.Should().BeNullOrEmpty();
             u.Posts.Should().BeNullOrEmpty();
+            u.Notifications.Should().BeNullOrEmpty();
             u.Blacklist.Should().BeNullOrEmpty();
             
         }
@@ -73,19 +73,22 @@ namespace InstagramEvents.Tests
         }
 
         [Test]
-        public void t5_users_can_add_and_delete_their_posts()
+        public void t5_users_can_add_and_delete_their_posts_only()
         {
 
-            User u = new User("Alex1234");
+            User u1 = new User("Alex1234");
+            User u2 = new User("Loic5678");
             Image img = new Bitmap(1, 1);
 
-            Post p = u.AddPost(img, "Test created post");
+            Post p = u1.AddPost(img, "Test created post");
 
-            u.Posts.Should().Contain(p);
+            u1.Posts.Should().Contain(p);
 
-            u.DeletePost(p);
+            Assert.Throws<MethodAccessException>(() => u2.DeletePost(p));
 
-            u.Posts.Should().NotContain(p);
+            u1.DeletePost(p);
+
+            u1.Posts.Should().NotContain(p);
 
         }
     }

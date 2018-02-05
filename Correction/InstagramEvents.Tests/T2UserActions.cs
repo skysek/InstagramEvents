@@ -13,7 +13,7 @@ namespace InstagramEvents.Tests
     class T2UserActions
     {
         [Test]
-        public void t1_users_can_follow_and_unfollow_users()
+        public void t1_users_can_follow_and_unfollow_other_users()
         {
             User u1 = new User("Alex1234");
             User u2 = new User("Loic5678");
@@ -25,6 +25,8 @@ namespace InstagramEvents.Tests
             u1.Unfollow(u2);
             u1.Followings.Should().NotContain(u2);
             u2.Followers.Should().NotContain(u1);
+
+            Assert.Throws<ArgumentException>(() => u1.Follow(u1));
         }
 
         [Test]
@@ -47,8 +49,11 @@ namespace InstagramEvents.Tests
         {
             User u1 = new User("Alex1234");
             User u2 = new User("Loic5678");
+
             u1.BlockUser(u2);
             u1.Blacklist.Should().Contain(u2);
+
+            Assert.Throws<ArgumentException>(() => u1.BlockUser(u1));
         }
     }
 }

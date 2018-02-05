@@ -14,7 +14,7 @@ namespace InstagramEvents.Tests
     {
 
         [Test]
-        public void t1_created_posts_should_have_nothing_but_index_poster_content_optional_descritpion_and_date()
+        public void t1_created_posts_should_have_nothing_but_index_poster_content_optional_description_and_date()
         {
 
             User u = new User("Alex1234");
