@@ -69,7 +69,7 @@ namespace InstagramEvents
                 {
                     _followings.Add(user);
                     user.Followers.Add(this);
-                    _notifEvent.NotifFollow(this);
+                    _notifEvent.NotifFollow(this, user);
                 }
                 else
                 {
@@ -189,17 +189,17 @@ namespace InstagramEvents
             }
         }
 
-        public void SendMessage(User user, string msg)
+        public void SendMessage(User receiver, string msg)
         {
-            if (user.Blacklist.Contains(this))
+            if (receiver.Blacklist.Contains(this))
             {
                 throw new Exception("Impossible d'envoyer un message à cet utilisateur.");
             }
             else
             {
-                Conversation c = this.Messenger.AddConversation(user);
+                Conversation c = this.Messenger.AddConversation(receiver);
                 Message m = c.AddMessage(this, msg);
-                _notifEvent.SendMessage(user, m);
+                _notifEvent.SendMessage(receiver, m);
             }
             
         }

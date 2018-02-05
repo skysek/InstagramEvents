@@ -13,10 +13,39 @@ namespace InstagramEvents.Tests
     {
 
         [Test]
-        public void t1_()
+        public void t1_adding_conversation_should_be_reciprocal_between_users()
         {
+            User u1 = new User("Alex1234");
+            User u2 = new User("Loic5678");
 
+            Conversation c = u1.Messenger.AddConversation(u2);
+
+            u1.Messenger.Conversations.Should().Contain(c);
+            c.Sender.Should().Be(u1);
+            c.Receiver.Should().Be(u2);
+
+            Conversation conv = u2.Messenger.Conversations.Find((c1) => c.Sender == c1.Receiver && c.Receiver == c1.Sender);
+            conv.Should().NotBeNull();
         }
 
+        [Test]
+        public void t2_sending_message_should_update_both_conversations()
+        {
+            User u1 = new User("Alex1234");
+            User u2 = new User("Loic5678");
+
+            u1.SendMessage(u2, "Hello !");
+            Conversation c_u1 = u1.Messenger.Conversations.Find((c1) => c1.Sender == u1 && c1.Receiver == u2);
+            Conversation c_u2 = u2.Messenger.Conversations.Find((c2) => c2.Sender == u2 && c2.Receiver == u1);
+
+            u1.Messenger.Conversations.Should().Contain(c_u1);
+            u2.Messenger.Conversations.Should().Contain(c_u2);
+
+            Message m1 = c_u1.Messages.Find((m) => m.Content == "Hello !");
+            Message m2 = c_u2.Messages.Find((m) => m.Content == "Hello !");
+
+            m1.Should().NotBeNull();
+            m2.Should().NotBeNull();
+        }
     }
 }

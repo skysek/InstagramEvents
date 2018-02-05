@@ -16,53 +16,57 @@ namespace InstagramEvents
             
         }
 
-        public void NotifFollow(User user)
+        public void NotifFollow(User follower, User following)
         {
             if (BeforeNotifEvent != null) BeforeNotifEvent("NotifFollow");
-            Console.WriteLine($"{user.Username} a commencé à vous suivre");
+            following.AddNotification(follower, $"{follower.Username} a commencé à vous suivre");
+            Console.WriteLine($"{follower.Username} a commencé à vous suivre");
         }
 
         public void LikePost(Post post, User u)
         {
             if (BeforeNotifEvent != null) BeforeNotifEvent("LikePost");
-            Console.WriteLine($" {post.Poster.Username} : {u.Surname} a aimé votre contenu {post.Description}");
+            post.Poster.AddNotification(u, $" {u.Username} a aimé votre contenu {post.Description}");
+            Console.WriteLine($" {u.Username} a aimé votre contenu {post.Description}");
         }
 
         public void LikeComment(Comment comment, User u)
         {
             if (BeforeNotifEvent != null) BeforeNotifEvent("LikeComment");
-            Console.WriteLine($"{comment.Poster.Username} : {u.Surname} a aimé votre commentaire : {comment.Message}");
+            comment.Poster.AddNotification(u, $" {u.Username} a aimé votre commentaire : {comment.Message}");
+            Console.WriteLine($"{u.Username} a aimé votre commentaire : {comment.Message}");
         }
 
         public void Comment(User user,Post post, String msg)
         {
             if (BeforeNotifEvent != null) BeforeNotifEvent("Comment");
-            Console.WriteLine($"{post.Poster.Username} : {user.Surname} a commenté votre post : {msg}");
+            post.Poster.AddNotification(user, $"{user.Username} a commenté votre post : {msg}");
+            Console.WriteLine($"{user.Username} a commenté votre post : {msg}");
         }
 
         public void Answer(User u, Comment comment, string msg)
         {
             if (BeforeNotifEvent != null) BeforeNotifEvent("Answer");
-            Console.WriteLine($"{u.Surname} a répondu à votre commantaire : {msg}");
-            if (u.Surname != comment.Post.Poster.Surname)
-            {
-                Console.WriteLine($"{comment.Post.Poster.Username} un commentaire a été posté sur votre post : {msg}");
-            }
+            comment.Poster.AddNotification(u, $"{u.Username} a répondu à votre commentaire : {msg}");
+            Console.WriteLine($"{u.Username} a répondu à votre commantaire : {msg}");
         }
 
         public void StartLive(User user)
         {
             if (BeforeNotifEvent != null) BeforeNotifEvent("StartLive");
+
             foreach (User u in user.Followers)
             {
-                Console.WriteLine($"{u.Username} : {user.Username} a commencé un live en direct.");
+                u.AddNotification(user, $"{user.Username} a commencé un live en direct.");
+                Console.WriteLine($"{user.Username} a commencé un live en direct.");
             }
         }
 
-        public void SendMessage(User user, Message m)
+        public void SendMessage(User receiver, Message m)
         {
             if (BeforeNotifEvent != null) BeforeNotifEvent("SendMessage");
-            Console.WriteLine($" {user.Surname} : {m.Sender.Username} vous a envoyé un nouveau message : {m.Content}");
+            m.Sender.Messenger.AddConversation(receiver);
+            Console.WriteLine($" {receiver.Surname} : {m.Sender.Username} vous a envoyé un nouveau message : {m.Content}");
         }
     }
 }
