@@ -61,7 +61,7 @@ namespace InstagramEvents
         {
             if (user.Blacklist.Contains(this))
             {
-                throw new Exception("Impossible de follow cet utilisateur.");
+                throw new ArgumentException("Impossible de follow cet utilisateur.");
             }
             else
             {
@@ -102,7 +102,7 @@ namespace InstagramEvents
             }
             else
             {
-                throw new MethodAccessException("Vous ne pouvez pas supprimer les posts d'autres utilisateurs.");
+                throw new ArgumentException("Vous ne pouvez pas supprimer les posts d'autres utilisateurs.");
             }
         }
 
@@ -110,7 +110,7 @@ namespace InstagramEvents
         {
             if (post.Poster.Blacklist.Contains(this))
             {
-                throw new Exception("Impossible de liker ce post.");
+                throw new ArgumentException("Impossible de liker ce post.");
             }
             else
             {
@@ -124,7 +124,7 @@ namespace InstagramEvents
         {
             if (comment.Poster.Blacklist.Contains(this))
             {
-                throw new Exception("Impossible de liker ce commentaire.");
+                throw new ArgumentException("Impossible de liker ce commentaire.");
             }
             else
             {
@@ -139,7 +139,7 @@ namespace InstagramEvents
         {
             if (post.Poster.Blacklist.Contains(this))
             {
-                throw new Exception("Impossible de commenter ce post.");
+                throw new ArgumentException("Impossible de commenter ce post.");
             }
             else
             {
@@ -150,11 +150,23 @@ namespace InstagramEvents
             
         }
 
+        public void DeleteComment(Post post, Comment comment)
+        {
+            if (comment.Poster == this)
+            {
+                post.DeleteComment(comment);
+            }
+            else
+            {
+                throw new ArgumentException("Vous ne pouvez pas supprimer les commentaires d'autres utilisateurs.");
+            }
+        }
+
         public Comment Answer(Comment comment, string msg)
         {
             if (comment.Poster.Blacklist.Contains(this))
             {
-                throw new Exception("Impossible de répondre à ce commentaire.");
+                throw new ArgumentException("Impossible de répondre à ce commentaire.");
             }
             else
             {
@@ -163,6 +175,18 @@ namespace InstagramEvents
                 return c;
             }
             
+        }
+
+        public void DeleteAnswer(Comment comment, Comment answer)
+        {
+            if (answer.Poster == this)
+            {
+                comment.DeleteAnswer(answer);
+            }
+            else
+            {
+                throw new ArgumentException("Vous ne pouvez pas supprimer les réponses d'autres utilisateurs.");
+            }
         }
 
         public void StartLive()
@@ -193,15 +217,29 @@ namespace InstagramEvents
         {
             if (receiver.Blacklist.Contains(this))
             {
-                throw new Exception("Impossible d'envoyer un message à cet utilisateur.");
+                throw new ArgumentException("Impossible d'envoyer un message à cet utilisateur.");
             }
             else
             {
                 Conversation c = this.Messenger.AddConversation(receiver);
+
                 Message m = c.AddMessage(this, msg);
+
                 _notifEvent.SendMessage(receiver, m);
             }
-            
+
+        }
+
+        public void DeleteMessage(Conversation conv, Message m)
+        {
+            if (conv.Sender == this)
+            {
+                conv.DeleteMessage(m);
+            }
+            else
+            {
+                throw new ArgumentException("Vous ne pouvez pas supprimer les messages d'autres conversations.");
+            }
         }
 
         public Notification AddNotification(User sender, string message)
@@ -221,7 +259,7 @@ namespace InstagramEvents
             }
             else
             {
-                throw new MethodAccessException("Vous ne pouvez pas supprimer les notifications d'autres utilisateurs.");
+                throw new ArgumentException("Vous ne pouvez pas supprimer les notifications d'autres utilisateurs.");
             }
             
         }

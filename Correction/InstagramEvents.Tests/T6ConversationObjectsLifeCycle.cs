@@ -24,7 +24,7 @@ namespace InstagramEvents.Tests
             c.Sender.Should().Be(u1);
             c.Receiver.Should().Be(u2);
 
-            Conversation conv = u2.Messenger.Conversations.Find((c1) => c.Sender == c1.Receiver && c.Receiver == c1.Sender);
+            Conversation conv = u2.Messenger.Conversations.Find((item) => (c.Sender == item.Receiver) && (c.Receiver == item.Sender));
             conv.Should().NotBeNull();
         }
 
@@ -46,6 +46,29 @@ namespace InstagramEvents.Tests
 
             m1.Should().NotBeNull();
             m2.Should().NotBeNull();
+
+            m1.Sender.Should().Be(u1);
+            m2.Sender.Should().Be(u1);
+        }
+
+        [Test]
+        public void t3_message_deletion_should_be_possible_by_conversation_sender_only()
+        {
+            User u1 = new User("Alex1234");
+            User u2 = new User("Loic5678");
+
+            u1.SendMessage(u2, "Hello !");
+
+            Conversation c_u1 = u1.Messenger.Conversations.Find((c1) => c1.Sender == u1 && c1.Receiver == u2);
+            Conversation c_u2 = u2.Messenger.Conversations.Find((c2) => c2.Sender == u2 && c2.Receiver == u1);
+
+            Message m1 = c_u1.Messages.Find((m) => m.Content == "Hello !");
+            Message m2 = c_u2.Messages.Find((m) => m.Content == "Hello !");
+
+            Assert.Throws<ArgumentException>(() => u1.DeleteMessage(c_u2, m2));
+
+            u1.DeleteMessage(c_u1, m1);
+            c_u1.Messages.Should().NotContain(m1);
         }
     }
 }

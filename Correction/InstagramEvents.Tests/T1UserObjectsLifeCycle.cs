@@ -84,7 +84,7 @@ namespace InstagramEvents.Tests
 
             u1.Posts.Should().Contain(p);
 
-            Assert.Throws<MethodAccessException>(() => u2.DeletePost(p));
+            Assert.Throws<ArgumentException>(() => u2.DeletePost(p));
 
             u1.DeletePost(p);
 

@@ -10,7 +10,7 @@ using System.Drawing;
 namespace InstagramEvents.Tests
 {
     [TestFixture]
-    class T2UserActions
+    class T3UserActions
     {
         [Test]
         public void t1_users_can_follow_and_unfollow_other_users()
@@ -45,7 +45,31 @@ namespace InstagramEvents.Tests
         }
 
         [Test]
-        public void t3_users_can_block_users()
+        public void t3_users_can_delete_their_comment_and_answer()
+        {
+            User u1 = new User("Alex1234");
+            User u2 = new User("Loic5678");
+            Image img = new Bitmap(1, 1);
+
+            Post p = u1.AddPost(img); 
+
+            Comment c1 = u1.Comment(p, "Test comment u1");
+            Comment c2 = u2.Comment(p, "Test comment u2");
+
+            Assert.Throws<ArgumentException>(() => u2.DeleteComment(p, c1));
+            u1.DeleteComment(p, c1);
+            p.Comments.Should().NotContain(c1);
+
+            Comment a1 = u1.Answer(c2, "Test answer u1");
+            Comment a2 = u2.Answer(c2, "Test answer u2");
+
+            Assert.Throws<ArgumentException>(() => u2.DeleteAnswer(c2, a1));
+            u1.DeleteAnswer(c2, a1);
+            c2.Answers.Should().NotContain(a1);
+        }
+
+        [Test]
+        public void t4_users_can_block_users()
         {
             User u1 = new User("Alex1234");
             User u2 = new User("Loic5678");

@@ -10,7 +10,7 @@ using FluentAssertions;
 namespace InstagramEvents.Tests
 {
     [TestFixture]
-    class T3BlockingUsersConstraints
+    class T4BlockingUsersConstraints
     {
     
         [Test]
@@ -20,7 +20,7 @@ namespace InstagramEvents.Tests
             User u2 = new User("Loic5678");
             u1.BlockUser(u2);
             
-            Assert.Throws<Exception>(() => u2.Follow(u1));
+            Assert.Throws<ArgumentException>(() => u2.Follow(u1));
         
         }
 
@@ -35,13 +35,13 @@ namespace InstagramEvents.Tests
             Image img = new Bitmap(1, 1);
             Post p = u1.AddPost(img);
 
-            Assert.Throws<Exception>(() => u2.LikePost(p));
-            Assert.Throws<Exception>(() => u2.Comment(p, "comment"));
+            Assert.Throws<ArgumentException>(() => u2.LikePost(p));
+            Assert.Throws<ArgumentException>(() => u2.Comment(p, "comment"));
 
             Comment c = p.AddComment(u1, "Test");
 
-            Assert.Throws<Exception>(() => u2.LikeComment(c));
-            Assert.Throws<Exception>(() => u2.Answer(c, "answer"));
+            Assert.Throws<ArgumentException>(() => u2.LikeComment(c));
+            Assert.Throws<ArgumentException>(() => u2.Answer(c, "answer"));
         }
 
         [Test]
@@ -52,7 +52,7 @@ namespace InstagramEvents.Tests
 
             u1.BlockUser(u2);
 
-            Assert.Throws<Exception>(() => u2.SendMessage(u1, "Hey"));
+            Assert.Throws<ArgumentException>(() => u2.SendMessage(u1, "Hey"));
         }
     }
 }

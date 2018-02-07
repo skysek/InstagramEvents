@@ -22,6 +22,11 @@ namespace InstagramEvents
         public Conversation AddConversation(User receiver)
         {
             Conversation conv = new Conversation(_user, receiver);
+            Conversation conv2 = new Conversation(receiver, _user);
+
+            _conversations.Add(conv);
+            receiver.Messenger.Conversations.Add(conv2);
+
             return conv;
         }
 
