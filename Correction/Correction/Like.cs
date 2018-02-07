@@ -9,6 +9,7 @@ namespace InstagramEvents
         readonly User _liker;
         Post _post;
         Comment _comment;
+        Message _message;
 
         internal Like(User liker, dynamic content)
         {
@@ -20,6 +21,10 @@ namespace InstagramEvents
             {
                 _comment = content;
             }
+            else if (content.GetType() == typeof(Message))
+            {
+                _message = content;
+            }
             else
             {
                 throw new ArgumentException();
@@ -29,5 +34,6 @@ namespace InstagramEvents
         public User Liker => _liker;
         public Post Post => _post;
         public Comment Comment => _comment;
+        public Message Message => _message;
     }
 }

@@ -135,6 +135,20 @@ namespace InstagramEvents
             
         }
 
+        public Like LikeMessage(Message message)
+        {
+            if (message.Sender.Blacklist.Contains(this))
+            {
+                throw new ArgumentException("Impossible de liker ce message.");
+            }
+            else
+            {
+                Like l = message.AddLike(this);
+                _notifEvent.LikeMessage(message, this);
+                return l;
+            }
+        }
+
         public Comment Comment(Post post, string msg)
         {
             if (post.Poster.Blacklist.Contains(this))

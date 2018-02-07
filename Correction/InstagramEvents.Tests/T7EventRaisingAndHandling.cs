@@ -21,11 +21,13 @@ namespace InstagramEvents.Tests
             User u1 = new User("LoicD");
             User u2 = new User("AlexS");
             User u3 = new User("Pouloulou");
-            u1.Name = "DONNE";
-            u2.Name = "BABEU";
-            u3.Name = "Reseaux";
+
             u2.Follow(u1);
             u3.Follow(u1);
+
+            u1.Notifications[0].Message.Should().Contain($"{u2.Username} a commencé à vous suivre");
+            u1.Notifications[1].Message.Should().Contain($"{u3.Username} a commencé à vous suivre");
+            u1.Notifications.Count.Should().Be(2);
         }
 
         [Test]
@@ -35,22 +37,26 @@ namespace InstagramEvents.Tests
             User u1 = new User("LoicD");
             User u2 = new User("AlexS");
             User u3 = new User("Pouloulou");
-            u1.Name = "DONNE";
-            u2.Name = "BABEU";
-            u3.Name = "Reseaux";
+
             u1.SendMessage(u2, "Le bando");
+
+            u2.Notifications[0].Message.Should().Contain($"{u1.Username} vous a envoyé un nouveau message : {u2.Messenger.Conversations[0].Messages[0].Content}");
+            u2.Notifications.Count.Should().Be(1);
         }
 
         [Test]
         public void t3_like_a_post_trigger_an_event()
         {
             User u1 = new User("LoicD");
-            User u2 = new User("KévinD");
-            u2.Surname = "Pouloulou";
-            u1.Surname = "Lolo";
+            User u2 = new User("Kévin");
             Image i = new Bitmap(1,1);
             Post p = u1.AddPost(i, "Golden moments");
+
             u2.LikePost(p);
+
+            u1.Notifications[0].Message.Should().Contain($"{u2.Username} a aimé votre contenu {p.Description}");
+            u1.Notifications.Count.Should().Be(1);
+            u1.Notifications[0].Receiver.ShouldBeEquivalentTo(u1);
         }
 
         [Test]
@@ -62,8 +68,12 @@ namespace InstagramEvents.Tests
             u1.Surname = "Lolo";
             Image i = new Bitmap(1, 1);
             Post p = u1.AddPost(i, "Golden moments");
-             u2.Comment(p,"yolo");
+
+            u2.Comment(p,"yolo");
             u1.LikeComment(p.Comments[0]);
+
+            u2.Notifications[0].Message.Should().Contain($"{u1.Username} a aimé votre commentaire : {p.Comments[0].Message}");
+            u2.Notifications.Count.Should().Be(1);
         }
 
         [Test]
@@ -75,7 +85,11 @@ namespace InstagramEvents.Tests
             u1.Surname = "Lolo";
             Image i = new Bitmap(1, 1);
             Post p = u1.AddPost(i, "Golden moments");
+
             u2.Comment(p,"beautiful");
+
+            u1.Notifications[0].Message.Should().Contain($"{u2.Username} a commenté votre post : {p.Comments[0].Message}");
+            u1.Notifications.Count.Should().Be(1);
         }
 
         [Test]
@@ -87,8 +101,13 @@ namespace InstagramEvents.Tests
             u1.Surname = "Lolo";
             Image i = new Bitmap(1, 1);
             Post p = u1.AddPost(i, "Golden moments");
+
             u2.Comment(p, "beautiful");
             u1.Answer(p.Comments[0],"Merci");
+
+            u2.Notifications[0].Message.Should().Contain($"{u1.Username} a répondu à votre commentaire : {p.Comments[0].Answers[0].Message}");
+            u1.Notifications.Count.Should().Be(1);
+
         }
 
         [Test]
@@ -97,22 +116,25 @@ namespace InstagramEvents.Tests
             User u1 = new User("LoicD");
             User u2 = new User("KévinD");
             User u3 = new User("LauranneD");
-            u2.Surname = "Pouloulou";
-            u1.Surname = "Lolo";
-            u3.Surname = "Laulau";
+
             u2.Follow(u1);
             u3.Follow(u1);
             u1.StartLive();
+
+            u2.Notifications[0].Message.Should().Contain($"{u1.Username} a commencé un live en direct");
+            u3.Notifications[0].Message.Should().Contain($"{u1.Username} a commencé un live en direct");
         }
 
         [Test]
-        public void t8_send_a_message_trigger_an_event()
+        public void t8_like_a_message_trigger_an_event()
         {
             User u1 = new User("LoicD");
             User u2 = new User("KévinD");
             u2.Surname = "Pouloulou";
             u1.Surname = "Lolo";
             u1.SendMessage(u2,"Bitch");
+            u2.LikeMessage(u2.Messenger.Conversations[0].Messages[0]);
+            u1.Notifications[0].Message.Should().Contain($"{u2.Username} a aimé votre message : {u2.Messenger.Conversations[0].Messages[0].Content}");
         }
     }
 }
