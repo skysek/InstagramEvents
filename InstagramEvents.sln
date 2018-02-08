@@ -6,8 +6,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstagramEvents", "Instagra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstagramEvents.Tests", "InstagramEvents.Tests\InstagramEvents.Tests.csproj", "{6B734E9C-2E58-4F85-B1D0-98D2E6BCCCDA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FD1A079D-9CB4-4F42-BD27-EF4C09DA2AB7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,9 +23,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{6B734E9C-2E58-4F85-B1D0-98D2E6BCCCDA} = {FD1A079D-9CB4-4F42-BD27-EF4C09DA2AB7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B7A0C3CE-CE05-4EEA-8EF4-51073794401D}

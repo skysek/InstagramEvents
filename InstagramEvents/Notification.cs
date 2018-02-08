@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace InstagramEvents
 {
-    public class Message
+    public class Notification
     {
-
-        internal Message()
+        internal Notification(int index, User sender, User receiver, string message)
         {
             throw new NotImplementedException();
         }
@@ -17,12 +18,22 @@ namespace InstagramEvents
             get { throw new NotImplementedException(); }
         }
 
-        public string Content
+        public User Sender
         {
             get { throw new NotImplementedException(); }
         }
 
-        public DateTime Posted_at
+        public User Receiver
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public string Message
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public DateTime ReceivedAt
         {
             get { throw new NotImplementedException(); }
         }

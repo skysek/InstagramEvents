@@ -6,13 +6,17 @@ namespace InstagramEvents
 {
     public class Like
     {
+        readonly User _liker;
+        readonly Post _post;
+        readonly Comment _comment;
+        readonly Message _message;
 
-        public Like(User liker, dynamic content)
+        internal Like(User liker, dynamic content)
         {
             throw new NotImplementedException();
         }
 
-        public User Poster
+        public User Liker
         {
             get { throw new NotImplementedException(); }
         }
@@ -23,6 +27,11 @@ namespace InstagramEvents
         }
 
         public Comment Comment
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public Message Message
         {
             get { throw new NotImplementedException(); }
         }

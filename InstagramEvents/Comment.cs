@@ -42,7 +42,7 @@ namespace InstagramEvents
             get { throw new NotImplementedException(); }
         }
 
-        public List<Comment> Comments
+        public List<Comment> Answers
         {
             get { throw new NotImplementedException(); }
         }
@@ -52,7 +52,7 @@ namespace InstagramEvents
             get { throw new NotImplementedException(); }
         }
 
-        public Comment AddLike(User liker)
+        public Like AddLike(User liker)
         {
             throw new NotImplementedException();
         }
@@ -62,7 +62,7 @@ namespace InstagramEvents
             throw new NotImplementedException();
         }
 
-        public void DeleteAnswer(int idx)
+        public void DeleteAnswer(Comment answer)
         {
             throw new NotImplementedException();
         }

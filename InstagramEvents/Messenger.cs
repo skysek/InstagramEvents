@@ -6,7 +6,6 @@ namespace InstagramEvents
 {
     public class Messenger
     {
-
         internal Messenger(User user)
         {
             throw new NotImplementedException();
@@ -27,7 +26,7 @@ namespace InstagramEvents
             throw new NotImplementedException();
         }
 
-        public void DeleteConversation(User receiver)
+        public void DeleteConversation(Conversation conversation)
         {
             throw new NotImplementedException();
         }

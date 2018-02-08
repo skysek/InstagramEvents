@@ -6,8 +6,7 @@ namespace InstagramEvents
 {
     public class Message
     {
-
-        internal Message()
+        internal Message(int idx, User sender, string content)
         {
             throw new NotImplementedException();
         }
@@ -25,6 +24,22 @@ namespace InstagramEvents
         public DateTime Posted_at
         {
             get { throw new NotImplementedException(); }
+        }
+
+        public User Sender
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public List<Like> Likes
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+
+        public Like AddLike(User liker)
+        {
+            throw new NotImplementedException();
         }
     }
 }

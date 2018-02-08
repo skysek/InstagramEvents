@@ -6,8 +6,7 @@ namespace InstagramEvents
 {
     public class Conversation
     {
-
-        internal Conversation()
+        internal Conversation(User sender, User receiver)
         {
             throw new NotImplementedException();
         }
@@ -27,17 +26,17 @@ namespace InstagramEvents
             get { throw new NotImplementedException(); }
         }
 
-        public DateTime Last_Message_at
+        public DateTime Last_message_at
         {
             get { throw new NotImplementedException(); }
         }
 
-        public Message AddMessage(string msg)
+        public Message AddMessage(User sender, string msg)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteMessage(int idx)
+        public void DeleteMessage(Message message)
         {
             throw new NotImplementedException();
         }
