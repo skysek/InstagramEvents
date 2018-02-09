@@ -46,6 +46,8 @@
     <Compile Include="Like.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Messenger.cs" />
+    <Compile Include="NotifEvent.cs" />
+    <Compile Include="Notification.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />

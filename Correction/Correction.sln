@@ -3,13 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F1D8710A-FCD3-4E5C-B0D9-D02A08C5DF2E}"
+
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InstagramEvents.Tests", "InstagramEvents.Tests\InstagramEvents.Tests.csproj", "{EEC4EA40-A579-4E17-95F7-F7FC899D0076}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InstagramEvents.Tests", "..\..\..\Insta\InstagramEvents\Correction\InstagramEvents.Tests\InstagramEvents.Tests.csproj", "{EEC4EA40-A579-4E17-95F7-F7FC899D0076}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstagramEvents.Correction", "..\..\..\Insta\InstagramEvents\Correction\InstagramEvents.Correction\InstagramEvents.Correction.csproj", "{FB1F1345-6C30-4156-A85B-9112F6D4A4A6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstagramEvents", "..\..\..\Insta\InstagramEvents\Correction\InstagramEvents\InstagramEvents.csproj", "{8DED7927-371E-4271-8CFA-B910761B635C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstagramEvents.Correction", "InstagramEvents.Correction\InstagramEvents.Correction.csproj", "{FB1F1345-6C30-4156-A85B-9112F6D4A4A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +22,6 @@ Global
 		{FB1F1345-6C30-4156-A85B-9112F6D4A4A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB1F1345-6C30-4156-A85B-9112F6D4A4A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB1F1345-6C30-4156-A85B-9112F6D4A4A6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8DED7927-371E-4271-8CFA-B910761B635C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8DED7927-371E-4271-8CFA-B910761B635C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8DED7927-371E-4271-8CFA-B910761B635C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8DED7927-371E-4271-8CFA-B910761B635C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

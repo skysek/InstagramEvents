@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\InstagramEvents.Correction\InstagramEvents.Correction.csproj" />
+    <ProjectReference Include="..\..\InstagramEvents\InstagramEvents.csproj" />
   </ItemGroup>
   
 </Project>

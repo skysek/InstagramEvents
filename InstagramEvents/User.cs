@@ -79,6 +79,8 @@ namespace InstagramEvents
             set { throw new NotImplementedException(); }
         }
 
+        public List<Notification> Notifications => throw new NotImplementedException();
+
         public Messenger Messenger
         {
             get { throw new NotImplementedException(); }
@@ -142,6 +144,33 @@ namespace InstagramEvents
         public void StopLive()
         {
             throw new NotImplementedException();
+        }
+
+        public void BlockUser(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SendMessage(User receiver, string msg)
+        {
+            throw new NotImplementedException();
+
+        }
+
+        public void DeleteMessage(Conversation conv, Message m)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Notification AddNotification(User sender, string message)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteNotification(Notification notification)
+        {
+            throw new NotImplementedException();
+
         }
     }
 }
