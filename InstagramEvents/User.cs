@@ -6,30 +6,9 @@ namespace InstagramEvents
 {
     public class User
     {
-        string _surname;
-        string _name;
-        readonly string _username;
-        string _website;
-        string _biography;
-        string _email;
-        int _phone;
-        readonly List<Post> _posts;
-        readonly List<User> _followers;
-        readonly List<User> _followings;
-        bool _isLive;
-        readonly Messenger _messenger;
-        readonly List<Notification> _notifications;
-        readonly List<User> _blacklist;
-        private NotifEvent _notifEvent;
-
         public User(string username)
         {
             throw new NotImplementedException();
-        }
-
-         void _notifEvent_BeforeNotifEvent(string message)
-        {
-            Console.WriteLine($"BeforeNotifeEvent fires from {message}");
         }
 
         public string Surname
@@ -88,7 +67,11 @@ namespace InstagramEvents
             get { throw new NotImplementedException(); }
         }
 
-        public bool IsLive { get => _isLive; set => _isLive = value; }
+        public bool IsLive
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
 
         public Messenger Messenger
         {
