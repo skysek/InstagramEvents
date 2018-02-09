@@ -26,11 +26,6 @@ namespace InstagramEvents
             get { throw new NotImplementedException(); }
         }
 
-        public DateTime Last_message_at
-        {
-            get { throw new NotImplementedException(); }
-        }
-
         public Message AddMessage(User sender, string msg)
         {
             throw new NotImplementedException();

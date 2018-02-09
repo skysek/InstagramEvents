@@ -7,9 +7,9 @@ namespace InstagramEvents
     public class Like
     {
         readonly User _liker;
-        Post _post;
-        Comment _comment;
-        Message _message;
+        readonly Post _post;
+        readonly Comment _comment;
+        readonly Message _message;
 
         internal Like(User liker, dynamic content)
         {

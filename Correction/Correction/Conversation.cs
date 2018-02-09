@@ -9,14 +9,12 @@ namespace InstagramEvents
         readonly User _sender;
         readonly User _receiver;
         readonly List<Message> _messages;
-        readonly DateTime _last_message_at;
 
         internal Conversation(User sender, User receiver)
         {
             _sender = sender;
             _receiver = receiver;
             _messages = new List<Message>();
-            _last_message_at = new DateTime();
         }
 
         public User Sender => _sender;
@@ -24,8 +22,6 @@ namespace InstagramEvents
         public User Receiver => _receiver;
 
         public List<Message> Messages => _messages;
-
-        public DateTime Last_message_at => _last_message_at;
 
         public Message AddMessage(User sender, string msg)
         {

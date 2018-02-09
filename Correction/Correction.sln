@@ -1,15 +1,9 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstagramEvents.Correction", "Correction\InstagramEvents.Correction.csproj", "{FB1F1345-6C30-4156-A85B-9112F6D4A4A6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstagramEvents", "InstagramEvents\InstagramEvents.csproj", "{8DED7927-371E-4271-8CFA-B910761B635C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{669143F7-8234-4FDB-AD5B-B0AB5642DA61}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstagramEvents.Tests", "InstagramEvents.Tests\InstagramEvents.Tests.csproj", "{6A494092-8941-491A-A590-AA025B1DA62D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
