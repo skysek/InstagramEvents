@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+    <AssemblyName>ITI.InstagramEvents</AssemblyName>
+    <RootNamespace>ITI.InstagramEvents</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="start xcopy $(TargetPath) $(SolutionDir)\..\ITI.InstagramEvents\$(OutDir) /e /y" />
+  </Target>
+
+</Project>

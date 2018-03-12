@@ -1,0 +1,63 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+
+namespace ITI.InstagramEvents
+{
+    public class Post: ILikableAndCommentable
+    {
+
+        readonly int _index;
+        readonly User _poster;
+        readonly Image _content;
+        readonly string _description;
+        readonly List<Like> _likes;
+        readonly List<Comment> _comments;
+        readonly DateTime _posted_at;
+
+        internal Post(int index, User poster, Image content, string description)
+        {
+            _index = index;
+            _poster = poster;
+            _content = content;
+            _description = description;
+            _likes = new List<Like>();
+            _comments = new List<Comment>();
+            _posted_at = DateTime.Now;
+        }
+
+        public int Index => _index;
+
+        public User Poster => _poster;
+
+        public Image Content => _content;
+
+        public string Description => _description;
+
+        public IReadOnlyList<Like> Likes => _likes;
+
+        public IReadOnlyList<Comment> Comments => _comments;
+
+        public DateTime PostedAt => _posted_at;
+
+        public Comment AddComment(User poster, string message)
+        {
+            int idx = _comments.Count + 1;
+            Comment c = new Comment(idx, poster, this, message);
+            _comments.Add(c);
+            return c;
+        }
+
+        public Like AddLike(User liker)
+        {
+            Like l = new Like(liker, this);
+            _likes.Add(l);
+            return l;
+        }
+
+        public void DeleteComment(Comment comment)
+        {
+            _comments.Remove(comment);
+        }
+    }
+}

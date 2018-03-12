@@ -1,0 +1,10 @@
+\\vmware-host\Shared Folders\Bureau\ITI-InstagramEvents\Correction\ITI.InstagramEvents.Correction\bin\Debug\net461\ITI.InstagramEvents.dll
+\\vmware-host\Shared Folders\Bureau\ITI-InstagramEvents\Correction\ITI.InstagramEvents.Correction\bin\Debug\net461\ITI.InstagramEvents.pdb
+\\vmware-host\Shared Folders\Bureau\ITI-InstagramEvents\Correction\ITI.InstagramEvents.Correction\obj\Debug\net461\ITI.InstagramEvents.Correction.AssemblyInfo.cs
+\\vmware-host\Shared Folders\Bureau\ITI-InstagramEvents\Correction\ITI.InstagramEvents.Correction\obj\Debug\net461\ITI.InstagramEvents.dll
+\\vmware-host\Shared Folders\Bureau\ITI-InstagramEvents\Correction\ITI.InstagramEvents.Correction\obj\Debug\net461\ITI.InstagramEvents.pdb
+\\vmware-host\Shared Folders\Bureau\Desktop\ITI-InstagramEvents\Correction\ITI.InstagramEvents.Correction\bin\Debug\net461\ITI.InstagramEvents.dll
+\\vmware-host\Shared Folders\Bureau\Desktop\ITI-InstagramEvents\Correction\ITI.InstagramEvents.Correction\bin\Debug\net461\ITI.InstagramEvents.pdb
+\\vmware-host\Shared Folders\Bureau\Desktop\ITI-InstagramEvents\Correction\ITI.InstagramEvents.Correction\obj\Debug\net461\ITI.InstagramEvents.Correction.AssemblyInfo.cs
+\\vmware-host\Shared Folders\Bureau\Desktop\ITI-InstagramEvents\Correction\ITI.InstagramEvents.Correction\obj\Debug\net461\ITI.InstagramEvents.dll
+\\vmware-host\Shared Folders\Bureau\Desktop\ITI-InstagramEvents\Correction\ITI.InstagramEvents.Correction\obj\Debug\net461\ITI.InstagramEvents.pdb

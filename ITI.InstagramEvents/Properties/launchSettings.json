@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "ITI.InstagramEvents": {
+      "commandName": "Executable",
+      "executablePath": "\\\\vmware-host\\Shared Folders\\Bureau\\InstagramEvents\\packages\\NUnit.Runners.Net4.2.6.4\\tools\\nunit.exe",
+      "commandLineArgs": "ITI.InstagramEvents.dll"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI.InstagramEvents", "ITI.InstagramEvents\ITI.InstagramEvents.csproj", "{8DED7927-371E-4271-8CFA-B910761B635C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITI.InstagramEvents.Tests", "ITI.InstagramEvents.Tests\ITI.InstagramEvents.Tests.csproj", "{6EE1CFAE-B7A0-4100-AD62-6F5665AB11BF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DED7927-371E-4271-8CFA-B910761B635C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DED7927-371E-4271-8CFA-B910761B635C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DED7927-371E-4271-8CFA-B910761B635C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DED7927-371E-4271-8CFA-B910761B635C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EE1CFAE-B7A0-4100-AD62-6F5665AB11BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EE1CFAE-B7A0-4100-AD62-6F5665AB11BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EE1CFAE-B7A0-4100-AD62-6F5665AB11BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EE1CFAE-B7A0-4100-AD62-6F5665AB11BF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6EE1CFAE-B7A0-4100-AD62-6F5665AB11BF} = {FD1A079D-9CB4-4F42-BD27-EF4C09DA2AB7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B7A0C3CE-CE05-4EEA-8EF4-51073794401D}
+	EndGlobalSection
+EndGlobal

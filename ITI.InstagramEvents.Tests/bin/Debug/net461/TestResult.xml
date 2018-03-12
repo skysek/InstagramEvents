@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="\\vmware-host\Shared Folders\Bureau\Desktop\ITI-InstagramEvents\ITI.InstagramEvents.Tests\bin\Debug\net461\ITI.InstagramEvents.Tests.dll" total="31" errors="0" failures="1" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2018-03-12" time="16:34:34">
+  <environment nunit-version="2.6.4.14350" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="\\vmware-host\Shared Folders\Bureau\Desktop\ITI-InstagramEvents\ITI.InstagramEvents.Tests" machine-name="WINDOWS10" user="Alexandre Babeu" user-domain="WINDOWS10" />
+  <culture-info current-culture="fr-FR" current-uiculture="fr-FR" />
+  <test-suite type="Assembly" name="\\vmware-host\Shared Folders\Bureau\Desktop\ITI-InstagramEvents\ITI.InstagramEvents.Tests\bin\Debug\net461\ITI.InstagramEvents.Tests.dll" executed="True" result="Failure" success="False" time="25.559" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="ITI" executed="True" result="Failure" success="False" time="25.546" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="InstagramEvents" executed="True" result="Failure" success="False" time="25.543" asserts="0">
+            <results>
+              <test-suite type="Namespace" name="Tests" executed="True" result="Failure" success="False" time="25.540" asserts="0">
+                <results>
+                  <test-suite type="TestFixture" name="PublicModelChecker" executed="True" result="Failure" success="False" time="5.693" asserts="0">
+                    <results>
+                      <test-case name="ITI.InstagramEvents.Tests.PublicModelChecker.public_API_is_not_modified" executed="True" result="Failure" success="False" time="5.679" asserts="1">
+                        <failure>
+                          <message><![CDATA[  Expected string length 3571 but was 10374. Strings differ at index 20.
+  Expected: "<Assembly Name="ITI.MassageParlor"><Types><Type Name="ITI.Mas..."
+  But was:  "<Assembly Name="ITI.InstagramEvents"><Types><Type Name="ITI.I..."
+  -------------------------------^
+]]></message>
+                          <stack-trace><![CDATA[à ITI.InstagramEvents.Tests.PublicModelChecker.public_API_is_not_modified()
+]]></stack-trace>
+                        </failure>
+                      </test-case>
+                    </results>
+                  </test-suite>
+                  <test-suite type="TestFixture" name="T1UserObjectsLifeCycle" executed="True" result="Success" success="True" time="5.937" asserts="0">
+                    <results>
+                      <test-case name="ITI.InstagramEvents.Tests.T1UserObjectsLifeCycle.t1_creating_named_users" executed="True" result="Success" success="True" time="4.695" asserts="2" />
+                      <test-case name="ITI.InstagramEvents.Tests.T1UserObjectsLifeCycle.t2_created_users_should_have_nothing_but_username" executed="True" result="Success" success="True" time="0.008" asserts="0" />
+                      <test-case name="ITI.InstagramEvents.Tests.T1UserObjectsLifeCycle.t3_created_users_should_not_be_live_and_should_have_an_empty_messenger" executed="True" result="Success" success="True" time="0.016" asserts="0" />
+                      <test-case name="ITI.InstagramEvents.Tests.T1UserObjectsLifeCycle.t4_users_can_be_fullfilled" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                      <test-case name="ITI.InstagramEvents.Tests.T1UserObjectsLifeCycle.t5_users_can_add_and_delete_their_posts_only" executed="True" result="Success" success="True" time="1.196" asserts="1" />
+                    </results>
+                  </test-suite>
+                  <test-suite type="TestFixture" name="T2PostObjectsLifeCycle" executed="True" result="Success" success="True" time="1.961" asserts="0">
+                    <results>
+                      <test-case name="ITI.InstagramEvents.Tests.T2PostObjectsLifeCycle.t1_created_posts_should_have_nothing_but_index_poster_content_optional_description_and_date" executed="True" result="Success" success="True" time="1.952" asserts="2" />
+                      <test-case name="ITI.InstagramEvents.Tests.T2PostObjectsLifeCycle.t2_posts_index_should_not_be_0_and_should_be_unique" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                      <test-case name="ITI.InstagramEvents.Tests.T2PostObjectsLifeCycle.t3_posts_are_created_by_user_with_optional_description" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                    </results>
+                  </test-suite>
+                  <test-suite type="TestFixture" name="T3UserActions" executed="True" result="Success" success="True" time="5.145" asserts="0">
+                    <results>
+                      <test-case name="ITI.InstagramEvents.Tests.T3UserActions.t1_users_can_follow_and_unfollow_other_users" executed="True" result="Success" success="True" time="0.974" asserts="1" />
+                      <test-case name="ITI.InstagramEvents.Tests.T3UserActions.t2_users_can_like_and_comment_posts_and_comments" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                      <test-case name="ITI.InstagramEvents.Tests.T3UserActions.t3_users_can_delete_their_comment_and_answer" executed="True" result="Success" success="True" time="2.353" asserts="2" />
+                      <test-case name="ITI.InstagramEvents.Tests.T3UserActions.t4_users_can_block_users" executed="True" result="Success" success="True" time="1.805" asserts="1" />
+                    </results>
+                  </test-suite>
+                  <test-suite type="TestFixture" name="T4BlockingUsersConstraints" executed="True" result="Success" success="True" time="5.757" asserts="0">
+                    <results>
+                      <test-case name="ITI.InstagramEvents.Tests.T4BlockingUsersConstraints.t1_blocked_user_can_not_follow_the_blocker_user" executed="True" result="Success" success="True" time="0.941" asserts="1" />
+                      <test-case name="ITI.InstagramEvents.Tests.T4BlockingUsersConstraints.t2_blocked_user_can_not_like_or_comment_anything_of_blocker_user" executed="True" result="Success" success="True" time="3.959" asserts="4" />
+                      <test-case name="ITI.InstagramEvents.Tests.T4BlockingUsersConstraints.t3_blocked_user_cannot_send_message_to_blocker_user" executed="True" result="Success" success="True" time="0.836" asserts="1" />
+                    </results>
+                  </test-suite>
+                  <test-suite type="TestFixture" name="T5LikeAndCommentObjectsBehavior" executed="True" result="Success" success="True" time="0.015" asserts="0">
+                    <results>
+                      <test-case name="ITI.InstagramEvents.Tests.T5LikeAndCommentObjectsBehavior.t1_created_comments_should_have_only_index_poster_parent_message_and_date" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                      <test-case name="ITI.InstagramEvents.Tests.T5LikeAndCommentObjectsBehavior.t2_comments_index_should_not_be_0_and_should_be_unique_for_each_parent" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                      <test-case name="ITI.InstagramEvents.Tests.T5LikeAndCommentObjectsBehavior.t3_likes_and_comments_should_be_attributed_likable_and_commentable_content" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                      <test-case name="ITI.InstagramEvents.Tests.T5LikeAndCommentObjectsBehavior.t4_comments_are_deleted_by_respective_parent" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                    </results>
+                  </test-suite>
+                  <test-suite type="TestFixture" name="T6ConversationObjectsLifeCycle" executed="True" result="Success" success="True" time="0.849" asserts="0">
+                    <results>
+                      <test-case name="ITI.InstagramEvents.Tests.T6ConversationObjectsLifeCycle.t1_adding_conversation_should_be_reciprocal_between_users" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                      <test-case name="ITI.InstagramEvents.Tests.T6ConversationObjectsLifeCycle.t2_sending_message_should_update_both_conversations" executed="True" result="Success" success="True" time="0.004" asserts="0" />
+                      <test-case name="ITI.InstagramEvents.Tests.T6ConversationObjectsLifeCycle.t3_message_deletion_should_be_possible_by_conversation_sender_only" executed="True" result="Success" success="True" time="0.835" asserts="1" />
+                    </results>
+                  </test-suite>
+                  <test-suite type="TestFixture" name="T7EventRaisingAndHandling" executed="True" result="Success" success="True" time="0.100" asserts="0">
+                    <results>
+                      <test-case name="ITI.InstagramEvents.Tests.T7EventRaisingAndHandling.t1_follow_an_user_trigger_an_event" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                      <test-case name="ITI.InstagramEvents.Tests.T7EventRaisingAndHandling.t2_send_a_message_to_an_user_trigger_an_event" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                      <test-case name="ITI.InstagramEvents.Tests.T7EventRaisingAndHandling.t3_like_a_post_trigger_an_event" executed="True" result="Success" success="True" time="0.067" asserts="0" />
+                      <test-case name="ITI.InstagramEvents.Tests.T7EventRaisingAndHandling.t4_like_a_comment_trigger_an_event" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                      <test-case name="ITI.InstagramEvents.Tests.T7EventRaisingAndHandling.t5_comment_a_post_trigger_an_event" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                      <test-case name="ITI.InstagramEvents.Tests.T7EventRaisingAndHandling.t6_answer_a_comment_trigger_an_event" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                      <test-case name="ITI.InstagramEvents.Tests.T7EventRaisingAndHandling.t7_start_a_live_trigger_an_event" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                      <test-case name="ITI.InstagramEvents.Tests.T7EventRaisingAndHandling.t8_like_a_message_trigger_an_event" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
