@@ -7,11 +7,10 @@ namespace ITI.InstagramEvents
     public class Like
     {
         readonly User _liker;
-        readonly Post _post;
-        readonly Comment _comment;
+        readonly ILikable _content;
         readonly Message _message;
 
-        internal Like(User liker, dynamic content)
+        internal Like(User liker, ILikable content)
         {
             throw new NotImplementedException();
         }
@@ -21,12 +20,7 @@ namespace ITI.InstagramEvents
             get { throw new NotImplementedException(); }
         }
 
-        public Post Post
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public Comment Comment
+        public ILikable Content
         {
             get { throw new NotImplementedException(); }
         }

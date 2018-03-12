@@ -13,10 +13,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "\\\\vmware-host\\Shared Folders\\Bureau\\Desktop\\ITI-InstagramEvents\\Correction\\ITI.InstagramEvents.Correction\\ITI.InstagramEvents.Correction.csproj",
+      "projectUniqueName": "\\\\vmware-host\\Shared Folders\\Bureau\\Desktop\\IN'TECH\\C#\\ITI-InstagramEvents\\Correction\\ITI.InstagramEvents.Correction\\ITI.InstagramEvents.Correction.csproj",
       "projectName": "ITI.InstagramEvents.Correction",
-      "projectPath": "\\\\vmware-host\\Shared Folders\\Bureau\\Desktop\\ITI-InstagramEvents\\Correction\\ITI.InstagramEvents.Correction\\ITI.InstagramEvents.Correction.csproj",
-      "outputPath": "\\\\vmware-host\\Shared Folders\\Bureau\\Desktop\\ITI-InstagramEvents\\Correction\\ITI.InstagramEvents.Correction\\obj\\",
+      "projectPath": "\\\\vmware-host\\Shared Folders\\Bureau\\Desktop\\IN'TECH\\C#\\ITI-InstagramEvents\\Correction\\ITI.InstagramEvents.Correction\\ITI.InstagramEvents.Correction.csproj",
+      "outputPath": "\\\\vmware-host\\Shared Folders\\Bureau\\Desktop\\IN'TECH\\C#\\ITI-InstagramEvents\\Correction\\ITI.InstagramEvents.Correction\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "net461"

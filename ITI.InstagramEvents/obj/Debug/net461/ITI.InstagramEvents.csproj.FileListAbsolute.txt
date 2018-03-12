@@ -1,11 +1,6 @@
-\\vmware-host\Shared Folders\Bureau\ITI-InstagramEvents\ITI.InstagramEvents\bin\Debug\net461\ITI.InstagramEvents.dll
-\\vmware-host\Shared Folders\Bureau\ITI-InstagramEvents\ITI.InstagramEvents\bin\Debug\net461\ITI.InstagramEvents.pdb
-\\vmware-host\Shared Folders\Bureau\ITI-InstagramEvents\ITI.InstagramEvents\obj\Debug\net461\ITI.InstagramEvents.AssemblyInfo.cs
-\\vmware-host\Shared Folders\Bureau\ITI-InstagramEvents\ITI.InstagramEvents\obj\Debug\net461\ITI.InstagramEvents.dll
-\\vmware-host\Shared Folders\Bureau\ITI-InstagramEvents\ITI.InstagramEvents\obj\Debug\net461\ITI.InstagramEvents.pdb
-\\vmware-host\Shared Folders\Bureau\Desktop\ITI-InstagramEvents\ITI.InstagramEvents\bin\Debug\net461\ITI.InstagramEvents.dll
-\\vmware-host\Shared Folders\Bureau\Desktop\ITI-InstagramEvents\ITI.InstagramEvents\bin\Debug\net461\ITI.InstagramEvents.pdb
-\\vmware-host\Shared Folders\Bureau\Desktop\ITI-InstagramEvents\ITI.InstagramEvents\obj\Debug\net461\ITI.InstagramEvents.AssemblyInfo.cs
-\\vmware-host\Shared Folders\Bureau\Desktop\ITI-InstagramEvents\ITI.InstagramEvents\obj\Debug\net461\ITI.InstagramEvents.dll
-\\vmware-host\Shared Folders\Bureau\Desktop\ITI-InstagramEvents\ITI.InstagramEvents\obj\Debug\net461\ITI.InstagramEvents.pdb
-\\vmware-host\Shared Folders\Bureau\Desktop\ITI-InstagramEvents\ITI.InstagramEvents\obj\Debug\net461\ITI.InstagramEvents.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Bureau\Desktop\IN'TECH\C#\ITI-InstagramEvents\ITI.InstagramEvents\bin\Debug\net461\ITI.InstagramEvents.dll
+\\vmware-host\Shared Folders\Bureau\Desktop\IN'TECH\C#\ITI-InstagramEvents\ITI.InstagramEvents\bin\Debug\net461\ITI.InstagramEvents.pdb
+\\vmware-host\Shared Folders\Bureau\Desktop\IN'TECH\C#\ITI-InstagramEvents\ITI.InstagramEvents\obj\Debug\net461\ITI.InstagramEvents.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Bureau\Desktop\IN'TECH\C#\ITI-InstagramEvents\ITI.InstagramEvents\obj\Debug\net461\ITI.InstagramEvents.AssemblyInfo.cs
+\\vmware-host\Shared Folders\Bureau\Desktop\IN'TECH\C#\ITI-InstagramEvents\ITI.InstagramEvents\obj\Debug\net461\ITI.InstagramEvents.dll
+\\vmware-host\Shared Folders\Bureau\Desktop\IN'TECH\C#\ITI-InstagramEvents\ITI.InstagramEvents\obj\Debug\net461\ITI.InstagramEvents.pdb

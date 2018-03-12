@@ -41,7 +41,7 @@ namespace ITI.InstagramEvents
             get { throw new NotImplementedException(); }
         }
 
-        public DateTime Posted_at
+        public DateTime PostedAt
         {
             get { throw new NotImplementedException(); }
         }

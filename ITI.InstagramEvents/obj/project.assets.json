@@ -13,10 +13,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "\\\\vmware-host\\Shared Folders\\Bureau\\Desktop\\ITI-InstagramEvents\\ITI.InstagramEvents\\ITI.InstagramEvents.csproj",
+      "projectUniqueName": "\\\\vmware-host\\Shared Folders\\Bureau\\Desktop\\IN'TECH\\C#\\ITI-InstagramEvents\\ITI.InstagramEvents\\ITI.InstagramEvents.csproj",
       "projectName": "ITI.InstagramEvents",
-      "projectPath": "\\\\vmware-host\\Shared Folders\\Bureau\\Desktop\\ITI-InstagramEvents\\ITI.InstagramEvents\\ITI.InstagramEvents.csproj",
-      "outputPath": "\\\\vmware-host\\Shared Folders\\Bureau\\Desktop\\ITI-InstagramEvents\\ITI.InstagramEvents\\obj\\",
+      "projectPath": "\\\\vmware-host\\Shared Folders\\Bureau\\Desktop\\IN'TECH\\C#\\ITI-InstagramEvents\\ITI.InstagramEvents\\ITI.InstagramEvents.csproj",
+      "outputPath": "\\\\vmware-host\\Shared Folders\\Bureau\\Desktop\\IN'TECH\\C#\\ITI-InstagramEvents\\ITI.InstagramEvents\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "net461"

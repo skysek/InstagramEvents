@@ -25,7 +25,7 @@ namespace ITI.InstagramEvents.Tests
 
             c.Index.Should().NotBe( 0 );
             c.Poster.Should().Be( u );
-            c.Parent.Should().Be( p );
+            c.ParentComment.Should().Be( p );
             c.Message.Should().Be( "test creation comment" );
 
             c.Likes.Should().BeNullOrEmpty();
@@ -72,7 +72,7 @@ namespace ITI.InstagramEvents.Tests
             Comment c = p.AddComment( u, "test comment" );
 
             c.Poster.Should().Be( u );
-            c.Parent.Should().Be( p );
+            c.ParentComment.Should().Be( p );
         }
 
         [Test]

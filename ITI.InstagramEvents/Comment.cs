@@ -7,7 +7,7 @@ namespace ITI.InstagramEvents
 {
     public class Comment: ILikableAndCommentable
     {
-        internal Comment(int index, User poster, dynamic parent, string message)
+        internal Comment(int index, User poster, ILikableAndCommentable parent, string message)
         {
             throw new NotImplementedException();
         }
